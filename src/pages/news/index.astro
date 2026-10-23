@@ -1,0 +1,325 @@
+
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { newsItems } from "../../data/news.js";
+import "../../styles/news.css";
+
+const publishedItems = newsItems.filter(
+    (item) => item.status === "published"
+);
+
+const featuredItem =
+    publishedItems.find((item) => item.featured) ?? publishedItems[0];
+
+const otherItems = publishedItems.filter(
+    (item) => item.slug !== featuredItem?.slug
+);
+
+const formatDate = (dateString) => {
+    if (!dateString) return "";
+
+    return new Date(`${dateString}T12:00:00Z`).toLocaleDateString(
+        "en-GB",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            timeZone: "UTC",
+        }
+    );
+};
+
+const getCategory = (item) => {
+    if (item.type === "story") return "Stories";
+    if (item.type === "memo") return "Memos";
+
+    if (!item.eventDate) return "Upcoming Events";
+
+    const today = new Date().toISOString().slice(0, 10);
+
+    return item.eventDate < today
+        ? "Past Events"
+        : "Upcoming Events";
+};
+
+const getFilterCategory = (item) => {
+    if (item.type === "story") return "story";
+    if (item.type === "memo") return "memo";
+
+    return getCategory(item) === "Past Events"
+        ? "past"
+        : "upcoming";
+};
+---
+
+<BaseLayout
+    title="News & Updates | Homecity FC"
+    description="Read the latest Homecity FC stories, club announcements, upcoming events and past events."
+    activePage="news"
+>
+    <main class="news-page">
+        <!-- News page introduction -->
+        <section class="news-hero">
+            <div class="news-container">
+                <span class="news-eyebrow">
+                    THE LATEST FROM HOME CITY
+                </span>
+
+                <h1>News &amp; Updates</h1>
+
+                <p>
+                    Stories, announcements and events from across the
+                    Homecity FC family.
+                </p>
+            </div>
+        </section>
+
+        <!-- Featured story -->
+        {
+            featuredItem && (
+                <section
+                    class="news-featured-section"
+                    data-featured-section
+                >
+                    <div class="news-container">
+                        <div class="news-section-heading">
+                            <div>
+                                <span class="news-eyebrow">
+                                    FROM THE CLUB
+                                </span>
+                                <h2>Featured Update</h2>
+                            </div>
+                        </div>
+
+                        <a
+                            class="news-featured-card"
+                            href={`/news/${featuredItem.slug}`}
+                            data-news-card
+                            data-kind={featuredItem.type}
+                            data-event-date={featuredItem.eventDate ?? ""}
+                            data-title={featuredItem.title}
+                            data-summary={featuredItem.summary}
+                        >
+                            <div class="news-featured-image">
+                                <img
+                                    src={featuredItem.image}
+                                    alt={featuredItem.title}
+                                    loading="eager"
+                                />
+
+                                <span class="news-featured-badge">
+                                    Featured
+                                </span>
+                            </div>
+
+                            <div class="news-featured-content">
+                                <span
+                                    class="news-category"
+                                    data-card-category
+                                >
+                                    {getCategory(featuredItem)}
+                                </span>
+
+                                <h3>{featuredItem.title}</h3>
+
+                                <p>{featuredItem.summary}</p>
+
+                                <div class="news-card-meta">
+                                    <span>
+                                        {formatDate(featuredItem.publishedAt)}
+                                    </span>
+                                </div>
+
+                                <span class="news-read-more">
+                                    Read full story
+                                    <span aria-hidden="true">→</span>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- News listing and filters -->
+        <section class="news-listing-section">
+            <div class="news-container">
+                <div class="news-section-heading">
+                    <div>
+                        <span class="news-eyebrow">
+                            STAY IN THE KNOW
+                        </span>
+                        <h2>Latest Updates</h2>
+                    </div>
+
+                    <p class="news-results-count" id="news-results-count">
+                        {publishedItems.length}
+                        {publishedItems.length === 1 ? " update" : " updates"}
+                    </p>
+                </div>
+
+                <!-- Category filters -->
+                <div
+                    class="news-filter-bar"
+                    role="group"
+                    aria-label="Filter news by category"
+                >
+                    <button
+                        class="news-filter-button is-active"
+                        type="button"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="news-filter-button"
+                        type="button"
+                        data-filter="story"
+                        aria-pressed="false"
+                    >
+                        Stories
+                    </button>
+
+                    <button
+                        class="news-filter-button"
+                        type="button"
+                        data-filter="upcoming"
+                        aria-pressed="false"
+                    >
+                        Upcoming Events
+                    </button>
+
+                    <button
+                        class="news-filter-button"
+                        type="button"
+                        data-filter="past"
+                        aria-pressed="false"
+                    >
+                        Past Events
+                    </button>
+
+                    <button
+                        class="news-filter-button"
+                        type="button"
+                        data-filter="memo"
+                        aria-pressed="false"
+                    >
+                        Memos
+                    </button>
+                </div>
+
+                <!-- Search -->
+                <div class="news-search-row">
+                    <label class="news-search-box" for="news-search-input">
+                        <span class="news-search-icon" aria-hidden="true">
+                            &#128269;
+                        </span>
+
+                        <input
+                            id="news-search-input"
+                            type="search"
+                            placeholder="Search news, stories and events..."
+                            autocomplete="off"
+                        />
+                    </label>
+
+                    <button
+                        class="news-reset-button"
+                        id="news-reset-filters"
+                        type="button"
+                    >
+                        Reset filters
+                    </button>
+                </div>
+
+                <!-- News cards -->
+                <div class="news-grid" id="news-grid">
+                    {
+                        otherItems.map((item) => (
+                            <a
+                                class="news-card"
+                                href={`/news/${item.slug}`}
+                                data-news-card
+                                data-kind={item.type}
+                                data-event-date={item.eventDate ?? ""}
+                                data-title={item.title}
+                                data-summary={item.summary}
+                            >
+                                <div class="news-card-image">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        loading="lazy"
+                                    />
+                                </div>
+
+                                <div class="news-card-content">
+                                    <span
+                                        class="news-category"
+                                        data-card-category
+                                    >
+                                        {getCategory(item)}
+                                    </span>
+
+                                    <h3>{item.title}</h3>
+
+                                    <p>{item.summary}</p>
+
+                                    <div class="news-card-meta">
+                                        <span>
+                                            {formatDate(item.publishedAt)}
+                                        </span>
+                                    </div>
+
+                                    <span class="news-read-more">
+                                        Read more
+                                        <span aria-hidden="true">→</span>
+                                    </span>
+                                </div>
+                            </a>
+                        ))
+                    }
+                </div>
+
+                <!-- Empty search/filter state -->
+                <div
+                    class="news-empty-state"
+                    id="news-empty-state"
+                    hidden
+                >
+                    <div class="news-empty-icon" aria-hidden="true">
+                        &#128269;
+                    </div>
+
+                    <h3>No updates found</h3>
+
+                    <p>
+                        Try another search term or choose a different
+                        category.
+                    </p>
+
+                    <button
+                        class="news-reset-button"
+                        type="button"
+                        data-empty-reset
+                    >
+                        View all updates
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/news.js" is:inline></script>
+
+    <script>
+        const emptyResetButton = document.querySelector("[data-empty-reset]");
+        const resetFiltersButton = document.querySelector("#news-reset-filters");
+
+        emptyResetButton?.addEventListener("click", () => {
+            resetFiltersButton?.click();
+        });
+    </script>
+</BaseLayout>

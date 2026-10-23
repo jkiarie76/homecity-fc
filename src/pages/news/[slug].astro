@@ -1,0 +1,138 @@
+
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { newsItems } from "../../data/news.js";
+import "../../styles/news.css";
+
+export function getStaticPaths() {
+    return newsItems
+        .filter((item) => item.status === "published")
+        .map((item) => ({
+            params: { slug: item.slug },
+            props: { item },
+        }));
+}
+
+const { item } = Astro.props;
+
+const formatDate = (dateString) => {
+    if (!dateString) return "";
+
+    return new Date(`${dateString}T12:00:00Z`).toLocaleDateString(
+        "en-GB",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            timeZone: "UTC",
+        }
+    );
+};
+
+const getCategory = (newsItem) => {
+    if (newsItem.type === "story") return "Stories";
+    if (newsItem.type === "memo") return "Memos";
+    if (!newsItem.eventDate) return "Upcoming Events";
+
+    const today = new Date().toISOString().slice(0, 10);
+
+    return newsItem.eventDate < today
+        ? "Past Events"
+        : "Upcoming Events";
+};
+---
+
+<BaseLayout
+    title={`${item.title} | Homecity FC`}
+    description={item.summary}
+    activePage="news"
+>
+    <main class="news-article">
+        <article class="news-article-container">
+            <nav class="news-breadcrumbs" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span aria-hidden="true"> / </span>
+                <a href="/news">News &amp; Updates</a>
+                <span aria-hidden="true"> / </span>
+                <span aria-current="page">{item.title}</span>
+            </nav>
+
+            <header class="news-article-header">
+                <span class="news-category">
+                    {getCategory(item)}
+                </span>
+
+                <h1>{item.title}</h1>
+
+                <p class="news-article-summary">{item.summary}</p>
+
+                <div class="news-card-meta">
+                    <span>
+                        Published {formatDate(item.publishedAt)}
+                    </span>
+                </div>
+            </header>
+
+            <figure class="news-article-cover">
+                <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="eager"
+                />
+            </figure>
+
+            {
+                item.type === "event" && (
+                    <section
+                        class="news-event-details"
+                        aria-label="Event details"
+                    >
+                        {item.eventDate && (
+                            <div class="news-event-detail">
+                                <strong>Date</strong>
+                                <span>{formatDate(item.eventDate)}</span>
+                            </div>
+                        )}
+
+                        {item.eventTime && (
+                            <div class="news-event-detail">
+                                <strong>Time</strong>
+                                <span>{item.eventTime}</span>
+                            </div>
+                        )}
+
+                        {item.venue && (
+                            <div class="news-event-detail">
+                                <strong>Venue</strong>
+                                <span>{item.venue}</span>
+                            </div>
+                        )}
+                    </section>
+                )
+            }
+
+            <div class="news-article-body">
+                {
+                    item.body?.map((paragraph) => (
+                        <p>{paragraph}</p>
+                    ))
+                }
+            </div>
+
+            {
+                item.tags?.length > 0 && (
+                    <div class="news-tags" aria-label="Article tags">
+                        {item.tags.map((tag) => (
+                            <span class="news-tag">#{tag}</span>
+                        ))}
+                    </div>
+                )
+            }
+
+            <a class="news-back-link" href="/news">
+                <span aria-hidden="true">←</span>
+                Back to News &amp; Updates
+            </a>
+        </article>
+    </main>
+</BaseLayout>

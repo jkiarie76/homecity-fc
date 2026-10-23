@@ -575,3 +575,161 @@
     animation-duration: 0.01ms !important;
   }
 }
+
+
+/* =========================================
+   HOMECITY FC — DARK CONTACT THEME
+   Consistent with News & Updates
+========================================= */
+
+.contact-page {
+  --contact-primary: #111315;
+  --contact-charcoal: #1b1e21;
+  --contact-accent: #f5d328;
+  --contact-text: #f5f5f5;
+  --contact-muted: #a8adb3;
+  --contact-border: #34383d;
+  --contact-surface: #1b1e21;
+  --contact-white: #f5f5f5;
+
+  color: var(--contact-text);
+  background: #111315;
+}
+
+/* Hero */
+
+.contact-hero {
+  background:
+    radial-gradient(
+      ellipse at 85% 0%,
+      rgba(245, 211, 40, 0.09),
+      transparent 42%
+    ),
+    #0b0c0e;
+  border-bottom: 1px solid var(--contact-border);
+}
+
+.contact-hero p {
+  color: #b7bcc2;
+}
+
+/* Main section */
+
+.contact-section {
+  background: #111315;
+}
+
+/* Contact information */
+
+.contact-info .contact-label,
+.contact-form-heading .contact-label {
+  color: var(--contact-accent);
+}
+
+.contact-info h2,
+.contact-info-item h3,
+.contact-info-item p,
+.contact-note strong {
+  color: var(--contact-white);
+}
+
+.contact-info-description,
+.contact-info-item span,
+.contact-note p {
+  color: var(--contact-muted);
+}
+
+.contact-icon {
+  border-color: rgba(245, 211, 40, 0.24);
+  background: rgba(245, 211, 40, 0.09);
+  color: var(--contact-accent);
+}
+
+.contact-note {
+  border-left-color: var(--contact-accent);
+  background: var(--contact-charcoal);
+}
+
+.contact-note-mark {
+  border-color: rgba(245, 211, 40, 0.4);
+  background: #0b0c0e;
+  color: var(--contact-accent);
+}
+
+/* Form card */
+
+.contact-form-card {
+  border-color: var(--contact-border);
+  background: var(--contact-charcoal);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form-heading h2 {
+  color: var(--contact-white);
+}
+
+.contact-form-heading > p {
+  color: var(--contact-muted);
+}
+
+.contact-field label {
+  color: #e6e8eb;
+}
+
+/* Dark inputs */
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  border-color: #41464c;
+  background-color: #111315;
+  color: #f5f5f5;
+  color-scheme: dark;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #9299a1;
+}
+
+.contact-field input:hover,
+.contact-field select:hover,
+.contact-field textarea:hover {
+  border-color: #666d75;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  border-color: var(--contact-accent);
+  background-color: #111315;
+  box-shadow: 0 0 0 3px rgba(245, 211, 40, 0.12);
+}
+
+/* Submit button */
+
+.contact-submit {
+  border-color: var(--contact-accent);
+  background: var(--contact-accent);
+  color: #111315;
+}
+
+.contact-submit:hover {
+  border-color: #ffe45c;
+  background: #ffe45c;
+  color: #111315;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form-footnote {
+  color: var(--contact-muted);
+}
+
+/* Keep form controls legible on mobile */
+
+@media (max-width: 720px) {
+  .contact-form-card {
+    border-color: var(--contact-border);
+    background: var(--contact-charcoal);
+  }
+}

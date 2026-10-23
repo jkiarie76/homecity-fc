@@ -1,0 +1,61 @@
+---
+import "../styles/main.css";
+
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import BackToTop from "../components/shared/BackToTop.astro";
+
+export interface Props {
+    title?: string;
+    description?: string;
+    activePage?: string;
+}
+
+const {
+    title = "Homecity FC | Official Website",
+    description = "Homecity FC — Pride of Kisii Estate, Thika. Uniting talent, developing champions and inspiring the next generation.",
+    activePage = ""
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content={description}
+    />
+
+    <title>{title}</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+</head>
+
+<body>
+
+    <Header activePage={activePage} />
+
+    <slot />
+
+    <Footer />
+
+    <BackToTop />    
+
+    <script src="/script.js" is:inline></script>
+
+</body>
+
+</html>

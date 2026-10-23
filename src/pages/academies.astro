@@ -1,0 +1,307 @@
+
+---
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/academies.css";
+
+const galleryItems = [
+    {
+        image: "/images/academy/academy-training-1.jpg",
+        title: "Training in Action",
+        category: "Training",
+        alt: "Young Homecity Academy players during football training"
+    },
+    {
+        image: "/images/academy/academy-skills-1.jpg",
+        title: "Building Football Skills",
+        category: "Skills Development",
+        alt: "Academy players practising football skills"
+    },
+    {
+        image: "/images/academy/academy-teamwork-1.jpg",
+        title: "Growing Together",
+        category: "Teamwork",
+        alt: "Homecity Academy players working together"
+    },
+    {
+        image: "/images/academy/academy-training-2.jpg",
+        title: "Learning the Game",
+        category: "Training",
+        alt: "Young footballers learning during a training session"
+    },
+    {
+        image: "/images/academy/academy-matchday-1.jpg",
+        title: "Future Stars",
+        category: "Matchday",
+        alt: "Homecity Academy players on the football pitch"
+    },
+    {
+        image: "/images/academy/academy-skills-2.jpg",
+        title: "Developing Talent",
+        category: "Skills Development",
+        alt: "Young players developing their football ability"
+    }
+];
+---
+
+<Layout title="Homecity Academy | Develop. Improve. Succeed.">
+    <main class="academy-page">
+
+        <!-- HERO -->
+        <section class="academy-hero">
+            <div class="academy-hero-overlay"></div>
+
+            <div class="academy-container academy-hero-content">
+                <span class="academy-eyebrow">HOME CITY FC · YOUTH DEVELOPMENT</span>
+
+                <h1>
+                    DEVELOP.
+                    <span>IMPROVE.</span>
+                    SUCCEED.
+                </h1>
+
+                <p class="academy-hero-description">
+                    Are you ready to develop, improve, and showcase your
+                    football talent? Join Homecity Academy and take the
+                    first step towards your football dreams.
+                </p>
+
+                <div class="academy-hero-actions">
+                    <a href="#training" class="academy-btn academy-btn-primary">
+                        Explore Training
+                    </a>
+                    <a href="/contact" class="academy-btn academy-btn-outline">
+                        Enquire About Joining
+                    </a>
+                </div>
+
+                <div class="academy-hero-tagline">
+                    <span>DISCIPLINE</span>
+                    <span>TEAMWORK</span>
+                    <span>EXCELLENCE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="academy-intro academy-section">
+            <div class="academy-container academy-intro-grid">
+                <div>
+                    <span class="academy-eyebrow">THE NEXT GENERATION</span>
+                    <h2>Where Young Talent <span>Meets Opportunity</span></h2>
+                </div>
+
+                <div class="academy-intro-copy">
+                    <p>
+                        Homecity Academy provides a platform for young players
+                        to develop their football abilities while building
+                        confidence, discipline, character, and teamwork.
+                    </p>
+                    <p>
+                        Whether your child is taking their first steps in
+                        football or sharpening existing skills, our training
+                        sessions are designed to help them learn, grow, and
+                        enjoy the beautiful game.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAINING DETAILS -->
+        <section class="academy-training academy-section" id="training">
+            <div class="academy-container">
+                <div class="academy-section-heading">
+                    <span class="academy-eyebrow">YOUR FOOTBALL JOURNEY STARTS HERE</span>
+                    <h2>Academy <span>Training</span></h2>
+                    <p>
+                        Find your age group, check the schedule, and get ready
+                        to develop your game.
+                    </p>
+                </div>
+
+                <div class="academy-info-grid">
+                    <article class="academy-info-card">
+                        <div class="academy-info-icon">📅</div>
+                        <h3>Training Days</h3>
+                        <div class="academy-day-list">
+                            <span>Tuesday</span>
+                            <span>Wednesday</span>
+                            <span>Thursday</span>
+                            <span>Saturday</span>
+                        </div>
+                    </article>
+
+                    <article class="academy-info-card">
+                        <div class="academy-info-icon">📍</div>
+                        <h3>Training Venue</h3>
+                        <p class="academy-venue">Kipara Grounds</p>
+                        <p class="academy-muted">
+                            Join us on the pitch and start building your game.
+                        </p>
+                    </article>
+
+                    <article class="academy-info-card academy-start-card">
+                        <div class="academy-info-icon">🚀</div>
+                        <h3>Training Start Date</h3>
+                        <p class="academy-start-day">Wednesday</p>
+                        <p class="academy-start-date">21 October 2026</p>
+                        <span class="academy-date-note">Advertised start date</span>
+                    </article>
+                </div>
+
+                <div class="academy-schedule">
+                    <div class="academy-schedule-heading">
+                        <div>
+                            <span class="academy-eyebrow">TRAINING SESSIONS</span>
+                            <h3>Choose Your Age Group</h3>
+                        </div>
+                        <p>Arrive ready to learn, train, and improve.</p>
+                    </div>
+
+                    <div class="academy-age-grid">
+                        <article class="academy-age-card academy-age-featured">
+                            <span class="academy-age-label">ELITE DEVELOPMENT GROUP</span>
+                            <h4>Under 17</h4>
+                            <p class="academy-age-time">7:00 AM <span>–</span> 9:30 AM</p>
+                            <p>Focused training to sharpen skills, game awareness, and performance.</p>
+                        </article>
+
+                        <article class="academy-age-card">
+                            <span class="academy-age-label">YOUNG PLAYER DEVELOPMENT</span>
+                            <h4>Under 7, 9, 11, 13 &amp; 15</h4>
+                            <p class="academy-age-time">10:00 AM <span>–</span> 12:00 Noon</p>
+                            <p>Age-group training focused on fundamentals, confidence, and teamwork.</p>
+                        </article>
+                    </div>
+
+                    <p class="academy-schedule-note">
+                        Training days: Tuesday, Wednesday, Thursday, and Saturday.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY HOME CITY -->
+        <section class="academy-benefits academy-section">
+            <div class="academy-container academy-benefits-grid">
+                <div class="academy-benefits-heading">
+                    <span class="academy-eyebrow">MORE THAN FOOTBALL</span>
+                    <h2>Building Players.<br /><span>Building Character.</span></h2>
+                    <p>
+                        We want every young player to grow both on and off
+                        the pitch.
+                    </p>
+                    <a href="/contact" class="academy-btn academy-btn-primary">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <div class="academy-benefits-list">
+                    <article class="academy-benefit">
+                        <span class="academy-benefit-number">01</span>
+                        <div>
+                            <h3>Build Football Skills</h3>
+                            <p>Develop technique, coordination, and confidence with the ball.</p>
+                        </div>
+                    </article>
+
+                    <article class="academy-benefit">
+                        <span class="academy-benefit-number">02</span>
+                        <div>
+                            <h3>Discipline &amp; Character</h3>
+                            <p>Learn commitment, respect, responsibility, and perseverance.</p>
+                        </div>
+                    </article>
+
+                    <article class="academy-benefit">
+                        <span class="academy-benefit-number">03</span>
+                        <div>
+                            <h3>Teamwork &amp; Sportsmanship</h3>
+                            <p>Understand how to work together, support teammates, and respect others.</p>
+                        </div>
+                    </article>
+
+                    <article class="academy-benefit">
+                        <span class="academy-benefit-number">04</span>
+                        <div>
+                            <h3>Develop Your Talent</h3>
+                            <p>Build a strong foundation and keep working towards your football dreams.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="academy-gallery academy-section" id="academy-gallery">
+            <div class="academy-container">
+                <div class="academy-section-heading">
+                    <span class="academy-eyebrow">LIFE AT THE ACADEMY</span>
+                    <h2>Learning. Training. <span>Growing.</span></h2>
+                    <p>
+                        A look at the journey of developing young football talent.
+                    </p>
+                </div>
+
+                <div class="academy-gallery-toolbar">
+                    <div class="academy-gallery-filters" id="academy-gallery-filters">
+                        <button class="academy-filter-btn active" type="button" data-filter="all">
+                            All
+                        </button>
+                    </div>
+
+                    <p class="academy-gallery-count" aria-live="polite">
+                        Showing <span id="academy-visible-count">{galleryItems.length}</span> photos
+                    </p>
+                </div>
+
+                <div class="academy-gallery-grid" id="academy-gallery-grid">
+                    {galleryItems.map((item, index) => (
+                        <article
+                            class:list={[
+                                "academy-gallery-item",
+                                index === 0 && "academy-gallery-item-featured"
+                            ]}
+                            data-category={item.category}
+                        >
+                            <img
+                                src={item.image}
+                                alt={item.alt}
+                                loading="lazy"
+                            />
+                            <div class="academy-gallery-overlay">
+                                <span>{item.category}</span>
+                                <h3>{item.title}</h3>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <p class="academy-gallery-empty" id="academy-gallery-empty" hidden>
+                    No photos found in this category yet.
+                </p>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="academy-cta">
+            <div class="academy-cta-overlay"></div>
+            <div class="academy-container academy-cta-content">
+                <span class="academy-eyebrow">THE FUTURE STARTS HERE</span>
+                <h2>Every Star Starts <span>Somewhere.</span></h2>
+                <p>
+                    Parents and guardians, give your child the opportunity
+                    to learn, grow, and shine through football.
+                </p>
+                <a href="/contact" class="academy-btn academy-btn-primary">
+                    Enquire About the Academy
+                </a>
+                <p class="academy-cta-signoff">
+                    HOMECITY ACADEMY — Giving kids a platform to portray their talents.
+                </p>
+            </div>
+        </section>
+
+    </main>
+</Layout>
+
+<script is:inline src="/academy.js"></script>

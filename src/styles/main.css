@@ -1,0 +1,1388 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & RESET
+   ========================================================================== */
+:root {
+    --primary-yellow: #fec107;
+    --pitch-black: #0d0d0d;      /* Premium deep black background */
+    --carbon-gray: #161616;      /* Alternating section background */
+    --card-bg: #1e1e1e;          /* Individual component card background */
+    --border-subtle: rgba(254, 193, 7, 0.15);
+    --text-light: #ffffff;
+    --text-muted: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--pitch-black);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(17, 17, 17, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(254, 193, 7, 0.25);
+}
+
+
+/* ================= NAV CONTAINER ================= */
+
+.nav-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+
+    height: 86px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ================= CLUB LOGO ================= */
+
+.nav-logo {
+    color: var(--primary-yellow);
+    text-decoration: none;
+
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* Prevent browser visited-link purple color */
+.nav-logo:visited {
+    color: #ffffff;
+}
+
+/* Keep logo white when hovering */
+.nav-logo:hover {
+    color: #ffffff;
+}
+
+.logo-gold {
+    color: var(--primary-yellow);
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-link {
+    position: relative;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Prevent browser visited-link purple color */
+.nav-link:visited {
+    color: #ffffff;
+}
+
+
+/* ================= NAV LINK UNDERLINE ================= */
+
+/* The yellow animated underline */
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--primary-yellow);
+
+    transition: width 0.3s ease;
+}
+
+
+/* Hover and active states */
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-yellow);
+}
+
+
+/* Show our custom yellow underline */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+/* ================= SUPPORT US BUTTON ================= */
+
+.nav-cta-btn {
+    padding: 10px 18px;
+
+    background: var(--primary-yellow);
+    color: #111111;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Prevent browser visited-link purple */
+.nav-cta-btn:visited {
+    color: #111111;
+}
+
+
+.nav-cta-btn:hover {
+    color: #111111;
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 25px rgba(254, 193, 7, 0.25);
+}
+
+
+/* ================= MOBILE MENU BUTTON ================= */
+
+.mobile-menu-toggle {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (Your Contented Design - Safe & Intact)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    /* background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('/.netlify/images?url=/images/hfc1.png&w=1920&fm=webp') center/cover no-repeat; */
+    min-height: 650px;
+    width: 100% !important;
+    min-height: 80vh;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+    padding: 140px 8% 80px 8%; /* Balanced padding to respect the fixed navbar */
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 16px;
+    border-left: 5px solid var(--primary-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.season-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--primary-yellow);
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 20px;
+    color: var(--primary-yellow);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.welcome-text {
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    color: var(--primary-yellow);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero-motto {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.venue-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 8%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(254, 193, 7, 0.4);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+}
+
+.venue-badge i {
+    color: var(--primary-yellow);
+    font-size: 1.5rem;
+}
+
+.venue-badge strong {
+    display: block;
+    color: var(--primary-yellow);
+    font-size: 0.95rem;
+}
+
+.venue-badge p {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-yellow {
+    background-color: var(--primary-yellow);
+    color: #000000;
+    padding: 14px 28px;
+    border: 2px solid var(--primary-yellow);
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+    animation: pulse-gold 2s infinite;
+}
+
+.btn-yellow:hover {
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 2px solid var(--primary-yellow);
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--primary-yellow);
+    color: #000000;
+    transform: scale(1.05);
+}
+
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 0 0 rgba(254, 193, 7, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(254, 193, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(254, 193, 7, 0); }
+}
+
+/* ==========================================================================
+   4. NEW PREMIUM DARK UNDER-SECTIONS (Match Center, Shop, Academy, Partners)
+   ========================================================================== */
+.section-white {
+    background-color: var(--pitch-black) !important;
+    color: var(--text-light) !important;
+    padding: 90px 6%;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Elegant Alternating Contrast Rows */
+.match-center, .academy-section {
+    background-color: var(--carbon-gray) !important;
+}
+
+.section-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 50px;
+    color: #ffffff !important;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-yellow);
+}
+
+/* Links & Buttons Underneath */
+.view-more-wrapper {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.view-more-link {
+    color: var(--primary-yellow) !important;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.view-more-link:hover {
+    color: #ffffff !important;
+    transform: translateX(5px);
+}
+
+/* --- Marquee Text Belt --- */
+.sponsors-marquee-section {
+    padding: 25px 0 !important;
+    background: #060606 !important;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.marquee-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    gap: 60px;
+    animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-track span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 2px;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- Match Center Grid --- */
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.match-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 35px 30px;
+    border-radius: 14px;
+}
+
+.match-box h3 {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    color: var(--primary-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.score-win {
+    color: var(--primary-yellow);
+    font-weight: 800;
+}
+
+.match-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.fixture-date {
+    color: var(--primary-yellow);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.fixture-versus {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.fixture-versus .vs {
+    font-size: 0.8rem;
+    background: #2b2b2b;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--text-muted);
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.standings-table th {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid #2b2b2b;
+    padding: 10px;
+    text-align: left;
+}
+
+.standings-table td {
+    padding: 12px 10px;
+    color: #eeeeee;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.leader-row {
+    background-color: rgba(254, 193, 7, 0.08);
+    color: var(--primary-yellow);
+    font-weight: 700;
+}
+
+/* ===================================================
+   OFFICIAL FAN SHOP
+   =================================================== */
+
+/* --- Shop Grid --- */
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+
+/* --- Product Image Container --- */
+
+.product-img-wrap {
+    width: 100%;
+    height: 280px;
+
+    background-color: #121212;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.03);
+
+    box-sizing: border-box;
+}
+
+
+/* --- Product Image --- */
+
+.product-img {
+    width: 100%;
+    height: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* --- Product Image Hover --- */
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+
+/* --- Product Information --- */
+
+.product-card h4 {
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    margin-bottom: 0;
+}
+
+
+/* --- Product Meta --- */
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 15px;
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- Product Price --- */
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-yellow);
+}
+
+
+/* --- Add To Cart Button --- */
+
+.shop-buy-btn {
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    padding: 8px 16px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* --- Button Hover --- */
+
+.shop-buy-btn:hover {
+    background-color: var(--primary-yellow);
+
+    color: #000000;
+
+    border-color: var(--primary-yellow);
+}
+
+
+/* --- View More --- */
+
+.view-more-wrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+/* --- Academy Grid --- */
+.academy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.academy-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 35px 25px;
+    border-radius: 14px;
+    border-bottom: 4px solid var(--primary-yellow);
+}
+
+.academy-card h3 {
+    color: var(--primary-yellow);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.academy-card p {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* --- Immersive Cinematic Gallery Re-engineering --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Snaps contextual background compositions beautifully */
+    transition: transform 0.5s ease;
+}
+
+/* High contrast bottom gradient overlay so text is highly readable */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px 20px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.gallery-tag {
+    background-color: var(--primary-yellow);
+    color: #000000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.gallery-overlay h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+    .gallery-item {
+        height: 230px;
+    }
+    .gallery-overlay h3 {
+        font-size: 0.95rem;
+    }
+}
+/* --- Partners & Sponsors (Matches Screenshot Reference Perfectly) --- */
+.partnership-section {
+    background-color: var(--pitch-black) !important;
+}
+
+.partnership-label {
+    color: var(--primary-yellow);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.partnership-title {
+    color: #ffffff !important;
+    font-size: 2.6rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.partnership-description {
+    max-width: 650px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 45px;
+}
+
+.partner-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.partner-card {
+    background: #141414; /* Pure custom panel charcoal dark background */
+    border-radius: 14px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px dashed rgba(254, 193, 7, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+/* ==========================================================================
+   SUPPORT THE CLUB SECTION STYLING
+   ========================================================================== */
+.support-section {
+    background-color: var(--pitch-black) !important;
+    padding: 80px 4% !important;
+    text-align: center;
+}
+
+.support-container {
+    max-width: 950px; /* Constrained slightly for better reading layout lines */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Header Formatting --- */
+.support-header-block {
+    margin-bottom: 35px;
+}
+
+.support-main-title {
+    color: var(--primary-yellow);
+    font-size: 2.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.support-intro-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Amount Option Toggles (Pills) --- */
+.donation-tier-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.amt-pill {
+    background: transparent;
+    border: 1px solid rgba(254, 193, 7, 0.4);
+    color: var(--primary-yellow);
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.amt-pill:hover {
+    background: rgba(254, 193, 7, 0.1);
+    border-color: var(--primary-yellow);
+}
+
+/* Filled Active State matching screenshot item 1 */
+.amt-pill.active {
+    background-color: var(--primary-yellow);
+    color: #000000;
+    border-color: var(--primary-yellow);
+}
+
+/* --- Primary Gateways Layout --- */
+.donation-gateways-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Base structural properties for big action choices */
+.donation-gateways-flex button {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 16px 35px;
+    border-radius: 12px; /* Smooth block corners matched to reference view */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    min-width: 260px;
+}
+
+/* M-Pesa Brand Theme Button */
+.action-btn-mpesa {
+    background-color: var(--primary-yellow);
+    color: #000000;
+    border: 2px solid var(--primary-yellow);
+}
+
+.action-btn-mpesa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(254, 193, 7, 0.25);
+}
+
+/* Corporate Sponsor Theme Button */
+.action-btn-sponsor {
+    background-color: #161616;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.action-btn-sponsor:hover {
+    background-color: #222222;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.btn-emoji {
+    font-size: 1.2rem;
+}
+/* ==========================================================================
+   OFFICIAL CLUB FOOTER STYLING
+   ========================================================================== */
+.main-footer {
+    background-color: #060606; /* Deepest black ground layer */
+    border-top: 1px solid var(--border-subtle);
+    padding: 80px 0 0 0;
+    color: var(--text-light);
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4% 60px 4%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Subtle underlying gold strip for column headers */
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: var(--primary-yellow);
+}
+
+/* --- Brand Information Styles --- */
+.brand-info .footer-logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.brand-info .footer-logo .logo-gold {
+    color: var(--primary-yellow);
+}
+
+.footer-motto {
+    color: var(--primary-yellow);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 4px 0 20px 0;
+}
+
+.brand-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-socials a {
+    width: 38px;
+    height: 38px;
+    background-color: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.footer-socials a:hover {
+    background-color: var(--primary-yellow);
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+/* --- Navigation Shortcut Columns --- */
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-yellow);
+    transform: translateX(4px);
+}
+
+/* --- Contact Column Styles --- */
+.footer-contact p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.footer-contact p i {
+    color: var(--primary-yellow);
+    margin-top: 4px;
+    font-size: 1rem;
+    width: 16px;
+    text-align: center;
+}
+
+/* --- Newsletter Submission Form --- */
+.footer-newsletter p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.newsletter-form input {
+    width: 100%;
+    padding: 14px 60px 14px 16px;
+    background-color: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    border-color: var(--primary-yellow);
+}
+
+.newsletter-form button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    width: 44px;
+    background-color: var(--primary-yellow);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #e0aa05;
+}
+
+/* ==========================================================================
+   FOOTER BOTTOM LEGAL SECTION BAR
+   ========================================================================== */
+.footer-bottom-bar {
+    background-color: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 25px 0;
+}
+
+.footer-bottom-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #777777;
+}
+
+.dev-credit a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.dev-credit a:hover {
+    color: var(--primary-yellow);
+}
+
+/* ==========================================================================
+   FOOTER RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Stacks completely vertical on phone screens */
+        gap: 35px;
+        padding-bottom: 40px;
+    }
+    
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE SCALING ADAPTATION
+   ========================================================================== */
+@media (max-width: 768px) {
+    .support-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .support-intro-text {
+        font-size: 1rem;
+    }
+
+    .amt-pill {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+        flex: 1 1 calc(50% - 15px); /* Forces neat two-column layout blocks on smaller mobile arrays */
+        min-width: 130px;
+    }
+    
+    .donation-gateways-flex button {
+        width: 100%; /* Spans full screen width cleanly on compact screens */
+        padding: 15px 20px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE NAVIGATION
+   ========================================================================== */
+
+/* Desktop */
+.mobile-menu-toggle {
+    display: none;
+}
+
+
+/* ================= TABLET + MOBILE ================= */
+
+@media (max-width: 992px) {
+
+    .mobile-menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1002;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: min(380px, 85vw);
+        height: 100vh;
+
+        background: rgba(18, 18, 18, 0.98);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 30px;
+
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+
+        border-left: 1px solid var(--border-subtle);
+
+        z-index: 1001;
+    }
+
+    /* JavaScript opens the menu */
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    /* Remove desktop hover underline inside drawer */
+    .nav-link::after {
+        display: none;
+    }
+
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 140px 4% 60px 4%;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        padding: 25px;
+    }
+
+    .venue-badge {
+        position: static;
+        margin-top: 25px;
+        display: inline-flex;
+    }
+
+    .section-white {
+        padding: 60px 4%;
+    }
+
+    .partnership-title {
+        font-size: 2rem;
+    }
+
+}
+
+/* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(254, 193, 7, 0.4);
+    border-radius: 50%;
+
+    background: var(--primary-yellow, #fec107);
+    color: #111;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(254, 193, 7, 0.25);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
+    }
+}

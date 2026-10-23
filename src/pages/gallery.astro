@@ -1,0 +1,655 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/gallery.css";
+---
+
+<BaseLayout
+    title="Gallery | Homecity FC"
+    description="Explore matchday moments, training, supporters, academy life and the journey of Homecity FC."
+    activePage="gallery"
+>
+
+    
+<!-- ================= GALLERY HERO ================= -->
+
+<section class="gallery-hero">
+
+    <img
+        class="gallery-hero-image"
+        src="/images/hfc1.png"
+        alt="Homecity FC matchday"
+    />
+
+    <div class="gallery-hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-label">HOMECITY FC</span>
+
+        <h1>
+            THE CITY<br />
+            <span>IN FRAMES.</span>
+        </h1>
+
+        <p>
+            Matchday energy, training ground moments, supporters and
+            everything that makes Homecity more than a football club.
+        </p>
+
+        <a href="#gallery-grid" class="hero-button">
+            VIEW THE GALLERY
+            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </a>
+
+        <div class="gallery-hero-scroll" aria-hidden="true">
+            <span>SCROLL TO EXPLORE</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+
+
+    <!-- ================= GALLERY INTRO ================= -->
+
+    <section class="gallery-intro">
+
+        <div class="container">
+
+            <div class="intro-top">
+
+                <div>
+
+                    <span class="section-label">
+                        THE HOMECITY EXPERIENCE
+                    </span>
+
+                    <h2>
+                        MOMENTS<br>
+                        <span>MATTER.</span>
+                    </h2>
+
+                </div>
+
+                <div class="intro-text">
+
+                    <p>
+                        Football is more than the ninety minutes on the pitch.
+                        It is the preparation, the celebrations, the setbacks,
+                        the supporters and the memories created together.
+                    </p>
+
+                    <p>
+                        Explore moments from Homecity FC on and off the pitch.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTERS ================= -->
+
+            <div class="gallery-filters">
+
+                <button class="filter-btn active" type="button">
+                    ALL
+                </button>
+
+                <button class="filter-btn" type="button">
+                    MATCHDAY
+                </button>
+
+                <button class="filter-btn" type="button">
+                    TRAINING
+                </button>
+
+                <button class="filter-btn" type="button">
+                    FANS
+                </button>
+
+                <button class="filter-btn" type="button">
+                    ACADEMY
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED MOMENT ================= -->
+
+    <section class="featured-moment">
+
+        <div class="container">
+
+            <div class="featured-grid">
+
+                <div class="featured-image">
+
+                    <img
+                        src="/images/hfc1.png"
+                        alt="Homecity FC matchday moment"
+                    />
+
+                    <div class="image-overlay"></div>
+
+                    <div class="featured-caption">
+
+                        <span>MATCHDAY</span>
+
+                        <h3>
+                            WHERE THE CITY<br>
+                            COMES ALIVE.
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="featured-side">
+
+                    <div class="featured-small">
+
+                        <!-- hfc2.png was not available in the copied assets -->
+                        <img
+                            src="/images/matchday.png"
+                            alt="Homecity FC matchday"
+                        />
+
+                        <div class="image-overlay"></div>
+
+                        <div class="small-caption">
+
+                            <span>THE TEAM</span>
+
+                            <h4>
+                                ONE CLUB.<br>
+                                ONE DREAM.
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="featured-message">
+
+                        <span class="section-label">
+                            FROM THE PITCH
+                        </span>
+
+                        <h3>
+                            EVERY<br>
+                            <span>FRAME</span><br>
+                            TELLS A STORY.
+                        </h3>
+
+                        <p>
+                            From the first whistle to the final celebration,
+                            these are the moments that define our journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN GALLERY ================= -->
+
+    <section class="gallery-section" id="gallery-grid">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        PHOTO ARCHIVE
+                    </span>
+
+                    <h2>
+                        INSIDE <span>HOMECITY.</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    A collection of moments from our matches, training sessions,
+                    academy and supporters.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <!-- IMAGE 1 -->
+
+                <div
+                    class="gallery-item large"
+                    data-category="matchday"
+                >
+
+                    <img
+                        src="/images/hfc1.png"
+                        alt="Homecity FC players celebrating"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>MATCHDAY</span>
+
+                            <h3>
+                                THE CELEBRATION
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 2 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="matchday"
+                >
+
+                    <img
+                        src="/images/matchday.png"
+                        alt="Homecity FC football action"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>MATCHDAY</span>
+
+                            <h3>
+                                GAME TIME
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 3 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="training"
+                >
+
+                    <img
+                        src="/images/training.png"
+                        alt="Homecity FC training session"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>TRAINING</span>
+
+                            <h3>
+                                PUTTING IN THE WORK
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 4 -->
+
+                <div
+                    class="gallery-item tall"
+                    data-category="fans"
+                >
+
+                    <img
+                        src="/images/fans.png"
+                        alt="Homecity FC supporters"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>FANS</span>
+
+                            <h3>
+                                THE CITY STANDS TOGETHER
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 5 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="matchday"
+                >
+
+                    <img
+                        src="/images/matchday.png"
+                        alt="Homecity FC matchday"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>MATCHDAY</span>
+
+                            <h3>
+                                GAME DAY
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 6 -->
+
+                <div
+                    class="gallery-item"
+                    data-category="academy"
+                >
+
+                    <img
+                        src="/images/academy.png"
+                        alt="Homecity FC Academy"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>ACADEMY</span>
+
+                            <h3>
+                                THE NEXT GENERATION
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE 7 -->
+
+                <div
+                    class="gallery-item wide"
+                    data-category="club"
+                >
+
+                    <img
+                        src="/images/hfc1.png"
+                        alt="Homecity FC football team"
+                    />
+
+                    <div class="gallery-item-overlay">
+
+                        <div>
+
+                            <span>HOMECITY FC</span>
+
+                            <h3>
+                                ONE CLUB. ONE DREAM.
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            aria-label="View image"
+                        >
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="load-more-wrapper">
+
+                <button
+                    class="load-more-btn"
+                    type="button"
+                >
+                    LOAD MORE MOMENTS
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FAN MOMENTS ================= -->
+
+    <section class="fan-moments">
+
+        <div class="container">
+
+            <div class="fan-heading">
+
+                <span class="section-label">
+                    THE 12TH PLAYER
+                </span>
+
+                <h2>
+                    THIS CLUB<br>
+                    <span>BELONGS TO THE CITY.</span>
+                </h2>
+
+                <p>
+                    Homecity is built by the people who show up, sing loud,
+                    wear the colours and believe in the club.
+                </p>
+
+            </div>
+
+
+            <div class="fan-grid">
+
+                <div class="fan-card">
+
+                    <div class="fan-number">
+                        01
+                    </div>
+
+                    <i class="fas fa-flag"></i>
+
+                    <h3>
+                        SHOW UP
+                    </h3>
+
+                    <p>
+                        Be there for the team on matchday and beyond.
+                    </p>
+
+                </div>
+
+
+                <div class="fan-card">
+
+                    <div class="fan-number">
+                        02
+                    </div>
+
+                    <i class="fas fa-shirt"></i>
+
+                    <h3>
+                        WEAR THE COLOURS
+                    </h3>
+
+                    <p>
+                        Represent Homecity wherever you go.
+                    </p>
+
+                </div>
+
+
+                <div class="fan-card">
+
+                    <div class="fan-number">
+                        03
+                    </div>
+
+                    <i class="fas fa-bullhorn"></i>
+
+                    <h3>
+                        MAKE SOME NOISE
+                    </h3>
+
+                    <p>
+                        Your voice is part of the Homecity experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SOCIAL CTA ================= -->
+
+    <section class="social-cta">
+
+        <img
+            class="social-cta-image"
+            src="/images/fans.png"
+            alt="Homecity FC supporters"
+        />
+
+        <div class="social-overlay"></div>
+
+        <div class="container social-content">
+
+            <span class="section-label">
+                FOLLOW THE JOURNEY
+            </span>
+
+            <h2>
+                SEE MORE<br>
+                <span>HOMECITY.</span>
+            </h2>
+
+            <p>
+                Follow Homecity FC for the latest matchday moments,
+                training updates and behind-the-scenes content.
+            </p>
+
+            <div class="social-buttons">
+
+                <a href="#" class="social-btn">
+                    <i class="fab fa-instagram"></i>
+                    INSTAGRAM
+                </a>
+
+                <a href="#" class="social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    FACEBOOK
+                </a>
+
+                <a href="#" class="social-btn">
+                    <i class="fab fa-tiktok"></i>
+                    TIKTOK
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</BaseLayout>

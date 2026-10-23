@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { products } from "../data/products.js";
+import "../styles/fan-shop.css";
+
+const availableProducts = products.filter((product) => product.available !== false);
+const categories = [...new Set(availableProducts.map((product) => product.category).filter(Boolean))];
+---
+
+<BaseLayout title="Fan Shop | Homecity FC" activePage="fan-shop">
+  <main class="commerce-page shop-page">
+    <section class="commerce-hero">
+      <div class="commerce-container commerce-hero-inner">
+        <p class="eyebrow">WEAR THE BADGE</p>
+        <h1>Homecity FC <span>Fan Shop</span></h1>
+        <p>Official club gear for the people behind the badge. Pick your gear and show your colours.</p>
+        <a class="button button-primary" href="#shop-products">Shop the collection <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="commerce-container shop-content" id="shop-products">
+      <div class="shop-heading-row">
+        <div>
+          <p class="eyebrow">THE CLUB COLLECTION</p>
+          <h2>Find your Homecity gear</h2>
+          <p class="muted">Choose a product, select your size where available, and add it to your cart.</p>
+        </div>
+        <a class="button button-outline cart-shortcut" href="/cart">View cart <span class="cart-count" data-cart-count>0</span></a>
+      </div>
+
+      <div class="shop-toolbar">
+        <label class="search-field"><span class="sr-only">Search products</span><span aria-hidden="true">⌕</span><input id="shop-search" type="search" placeholder="Search the collection…" autocomplete="off" /></label>
+        <label class="filter-field"><span class="sr-only">Filter by category</span><select id="shop-category"><option value="all">All categories</option>{categories.map((category) => <option value={category}>{category}</option>)}</select></label>
+        <label class="filter-field"><span class="sr-only">Sort products</span><select id="shop-sort"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option></select></label>
+      </div>
+
+      <div class="shop-product-grid" id="shop-product-grid">
+        {availableProducts.map((product) => (
+          <article class="product-card" data-product-id={product.id} data-category={product.category ?? "Other"} data-name={product.name.toLowerCase()} data-price={product.price}>
+            <div class="product-image-wrap">
+              <img class="product-image" src={product.image} alt={product.name} loading="lazy" />
+              <span class="product-category">{product.category ?? "Homecity FC"}</span>
+            </div>
+            <div class="product-details">
+              <h3>{product.name}</h3>
+              <p class="product-description">{product.description ?? "Official Homecity FC merchandise."}</p>
+              {product.sizes?.length > 0 && <label class="size-field"><span>Size</span><select class="product-size" aria-label={`Choose size for ${product.name}`}>{product.sizes.map((size) => <option value={size}>{size}</option>)}</select></label>}
+              <div class="product-buy-row">
+                <strong class="product-price">KES {Number(product.price).toLocaleString("en-KE")}</strong>
+                <button class="button button-add" type="button" data-add-to-cart data-product-id={product.id}>Add to cart <span aria-hidden="true">+</span></button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="empty-products" id="shop-no-results" hidden>No products match your search. Try another term or category.</p>
+    </section>
+    <div class="shop-toast" id="shop-toast" role="status" aria-live="polite" hidden><span id="shop-toast-message">Added to cart</span><a href="/cart">View cart →</a><button type="button" id="shop-toast-close" aria-label="Dismiss notification">×</button></div>
+  </main>
+  <script src="/shop.js" defer></script>
+</BaseLayout>

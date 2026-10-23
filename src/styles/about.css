@@ -1,0 +1,916 @@
+/* =========================================
+   HOMECITY FC — ABOUT PAGE
+   Page-specific styles only.
+   
+   NOTE:
+   All images are supplied by about.astro.
+   No image URLs are stored in this stylesheet.
+========================================= */
+
+
+/* =========================================
+   ABOUT PAGE VARIABLES
+========================================= */
+
+:root {
+    --yellow: #fec107;
+    --black: #0d0d0d;
+    --carbon: #161616;
+    --card: #1e1e1e;
+    --white: #ffffff;
+    --muted: #aaaaaa;
+    --border: rgba(254, 193, 7, 0.15);
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+.section-container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--yellow);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading {
+    max-width: 780px;
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.section-heading h2,
+.vision-header h2 {
+    margin-top: 12px;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span,
+.vision-header h2 span {
+    color: var(--yellow);
+}
+
+.section-heading p {
+    margin-top: 18px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.about-hero {
+    min-height: 90vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    /*
+       Image is intentionally NOT defined here.
+
+       The image is supplied from about.astro:
+
+       style="background-image: url('/images/hfc1.png');"
+    */
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13, 13, 13, 0.97) 0%,
+            rgba(13, 13, 13, 0.80) 50%,
+            rgba(13, 13, 13, 0.45) 100%
+        );
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding-top: 70px;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--yellow);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    margin-top: 18px;
+
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.88;
+
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.about-hero h1 span {
+    color: var(--yellow);
+}
+
+.about-hero p {
+    max-width: 570px;
+
+    margin-top: 30px;
+
+    color: #ddd;
+
+    font-size: 1.05rem;
+}
+
+.hero-scroll {
+    position: absolute;
+    z-index: 2;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #999;
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.hero-scroll i {
+    color: var(--yellow);
+}
+
+
+/* =========================================
+   IDENTITY
+========================================= */
+
+.identity-section {
+    padding: 115px 0;
+
+    background: var(--carbon);
+}
+
+.identity-grid {
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 80px;
+}
+
+.identity-heading h2 {
+    margin-top: 15px;
+
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.95;
+    font-weight: 900;
+}
+
+.identity-heading h2 span {
+    color: var(--yellow);
+}
+
+.identity-content {
+    max-width: 700px;
+}
+
+.identity-content p {
+    margin-bottom: 20px;
+
+    color: #aaa;
+}
+
+.identity-content .lead {
+    color: var(--white);
+
+    font-size: 1.25rem;
+
+    line-height: 1.6;
+}
+
+.identity-signature {
+    margin-top: 40px;
+
+    padding-left: 20px;
+
+    border-left: 3px solid var(--yellow);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.identity-signature strong {
+    font-size: 1rem;
+
+    letter-spacing: 1px;
+}
+
+.identity-signature span {
+    color: var(--yellow);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.story-section {
+    padding: 115px 0;
+
+    background: var(--black);
+}
+
+.story-layout {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+
+    min-height: 560px;
+
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: 560px;
+
+    object-fit: cover;
+}
+
+.image-caption {
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+
+    padding: 20px;
+
+    background: rgba(13, 13, 13, 0.9);
+
+    border-left: 3px solid var(--yellow);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.image-caption span {
+    color: var(--yellow);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.image-caption strong {
+    margin-top: 5px;
+
+    font-size: 1.1rem;
+}
+
+.story-content {
+    position: relative;
+
+    padding-left: 40px;
+}
+
+.story-line {
+    position: absolute;
+
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+
+    width: 1px;
+
+    background: rgba(254, 193, 7, 0.3);
+}
+
+.story-block {
+    position: relative;
+
+    margin-bottom: 45px;
+}
+
+.story-block:last-child {
+    margin-bottom: 0;
+}
+
+.story-block::before {
+    content: "";
+
+    position: absolute;
+
+    left: -44px;
+    top: 3px;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--yellow);
+
+    border-radius: 50%;
+}
+
+.story-block > span {
+    color: var(--yellow);
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.story-block h3 {
+    margin-top: 8px;
+
+    font-size: 1.1rem;
+}
+
+.story-block p {
+    margin-top: 12px;
+
+    color: #888;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   VISION
+========================================= */
+
+.vision-section {
+    padding: 115px 0;
+
+    background: var(--carbon);
+}
+
+.vision-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 50px;
+
+    margin-bottom: 60px;
+}
+
+.vision-header > p {
+    max-width: 350px;
+
+    color: #888;
+
+    font-size: 0.9rem;
+}
+
+.values-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.value-card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 30px;
+
+    background: var(--black);
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(254, 193, 7, 0.5);
+}
+
+.value-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color: rgba(254, 193, 7, 0.25);
+
+    font-size: 1.7rem;
+
+    font-weight: 900;
+}
+
+.value-card i {
+    color: var(--yellow);
+
+    font-size: 1.6rem;
+
+    margin-top: 70px;
+}
+
+.value-card h3 {
+    margin-top: 25px;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 1px;
+}
+
+.value-card p {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================
+   MANAGEMENT
+========================================= */
+
+.management-section {
+    padding: 115px 0;
+
+    background: var(--black);
+}
+
+.management-heading {
+    margin-bottom: 60px;
+}
+
+.management-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.management-card {
+    background: var(--card);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    transition: transform 0.3s ease;
+}
+
+.management-card:hover {
+    transform: translateY(-5px);
+}
+
+.management-image {
+    position: relative;
+
+    aspect-ratio: 4 / 5;
+
+    /*
+       No image URL here.
+
+       The actual image must come from:
+
+       <img src="/images/Chairman.jpg">
+    */
+
+    background:
+        linear-gradient(
+            135deg,
+            #222,
+            #111
+        );
+
+    overflow: hidden;
+}
+
+.management-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.management-number {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--yellow);
+
+    color: var(--black);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+.management-info {
+    padding: 23px;
+}
+
+.management-info > span {
+    color: var(--yellow);
+
+    font-size: 0.62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.management-info h3 {
+    margin-top: 7px;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+}
+
+.management-info p {
+    margin-top: 8px;
+
+    color: #777;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   COMMUNITY
+========================================= */
+
+.community-section {
+    min-height: 600px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    /*
+       Image intentionally removed from CSS.
+
+       about.astro will provide it:
+
+       style="background-image: url('/images/fans.png');"
+    */
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.community-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13, 13, 13, 0.95),
+            rgba(13, 13, 13, 0.65)
+        );
+}
+
+.community-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.community-content h2 {
+    max-width: 800px;
+
+    margin-top: 15px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.92;
+
+    font-weight: 900;
+}
+
+.community-content h2 span {
+    color: var(--yellow);
+}
+
+.community-content > p {
+    max-width: 620px;
+
+    margin-top: 25px;
+
+    color: #ccc;
+
+    font-size: 1rem;
+}
+
+.community-points {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.community-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 18px;
+
+    background: rgba(13, 13, 13, 0.75);
+
+    border: 1px solid var(--border);
+}
+
+.community-points i {
+    color: var(--yellow);
+}
+
+.community-points span {
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.about-cta {
+    padding: 110px 0;
+
+    text-align: center;
+
+    background: var(--yellow);
+
+    color: var(--black);
+}
+
+.about-cta .section-label {
+    color: var(--black);
+}
+
+.about-cta h2 {
+    margin-top: 15px;
+
+    font-size: clamp(3.5rem, 7vw, 6rem);
+
+    line-height: 0.9;
+
+    font-weight: 900;
+}
+
+.about-cta h2 span {
+    color: var(--white);
+}
+
+.about-cta p {
+    margin: 20px auto 30px;
+
+    color: rgba(13, 13, 13, 0.7);
+}
+
+.cta-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 23px;
+
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--black);
+    color: var(--white);
+}
+
+.secondary-btn {
+    border: 2px solid var(--black);
+    color: var(--black);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/*
+   Header, navigation, mobile menu and footer
+   are intentionally NOT handled here.
+
+   They are now shared globally through main.css.
+*/
+
+
+@media (max-width: 1050px) {
+
+    .values-grid,
+    .management-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .about-hero {
+        min-height: 80vh;
+    }
+
+    .about-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .identity-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .story-layout {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .story-image {
+        min-height: 420px;
+    }
+
+    .story-image img {
+        height: 420px;
+    }
+
+    .vision-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .values-grid,
+    .management-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .community-section {
+        min-height: 520px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .about-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .section-heading h2,
+    .vision-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .values-grid,
+    .management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-content {
+        padding-left: 30px;
+    }
+
+    .story-block::before {
+        left: -34px;
+    }
+
+    .community-points {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-cta h2 {
+        font-size: 3.4rem;
+    }
+
+}

@@ -1,17 +1,822 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
+<BaseLayout
+title="Homecity FC | Official Website"
+description="Homecity FC — Pride of Kisii Estate, Thika. Uniting talent, developing champions and inspiring the next generation."
+activePage="home"
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+>
+
+<!-- ================= HERO ================= -->
+
+<section
+    class="hero-section"
+    style="background-image: url('/images/hfc1.png');"
+>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="season-badge">
+            2026/27 SEASON — COMING BACK STRONG
+        </span>
+
+        <p class="welcome-text">
+            Welcome to
+        </p>
+
+        <h2 class="hero-title">
+            HOMECITY FC
+        </h2>
+
+        <h3 class="hero-subtitle">
+            Pride of Kisii Estate, Thika
+        </h3>
+
+        <h4 class="hero-motto">
+            ONE CLUB. ONE DREAM.
+        </h4>
+
+        <p class="hero-description">
+            Uniting talent, developing champions and inspiring the next
+            generation both on and off the field.
+        </p>
+
+        <div class="hero-cta-group">
+
+            <a href="/academy" class="btn-yellow">
+                <i class="fas fa-graduation-cap"></i>
+                JOIN THE ACADEMY
+            </a>
+
+            <a href="/match-center" class="btn-outline">
+                <i class="fas fa-calendar-alt"></i>
+                VIEW FIXTURES
+            </a>
+
+            <a href="/support" class="btn-outline">
+                <i class="fas fa-user-plus"></i>
+                REGISTER AS A PLAYER
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="venue-badge">
+
+        <i class="fas fa-map-marker-alt"></i>
+
+        <div>
+            <strong>KIPARA GROUNDS</strong>
+            <p>Kisii Estate, Thika, Kenya</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SPONSORS MARQUEE ================= -->
+
+<section class="section-white sponsors-marquee-section">
+
+    <div class="marquee-container">
+
+        <div class="marquee-track">
+
+            <span>HOMECITY ACADEMY</span>
+            <span>KISII ESTATE COMMUNITY</span>
+            <span>THIKA SPORTS HUB</span>
+            <span>KIPARA GROUNDS PARTNERS</span>
+            <span>HOMECITY FC FAN CLUB</span>
+
+            <span>HOMECITY ACADEMY</span>
+            <span>KISII ESTATE COMMUNITY</span>
+            <span>THIKA SPORTS HUB</span>
+            <span>KIPARA GROUNDS PARTNERS</span>
+            <span>HOMECITY FC FAN CLUB</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MATCH CENTER ================= -->
+
+<section
+    class="section-white match-center"
+    id="match-center"
+>
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            MATCH CENTER
+        </h2>
+
+        <div class="match-grid">
+
+            <!-- Latest Result -->
+
+            <div class="match-box">
+
+                <h3>
+                    Latest Result
+                </h3>
+
+                <div class="result-card">
+
+                    <div class="team-row">
+
+                        <strong>
+                            Homecity FC
+                        </strong>
+
+                        <span class="score-win">
+                            3
+                        </span>
+
+                    </div>
+
+                    <div class="team-row">
+
+                        Rivals FC
+
+                        <span>
+                            1
+                        </span>
+
+                    </div>
+
+                    <p class="match-meta">
+                        Kipara Grounds • FKF Regional League
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Upcoming Fixture -->
+
+            <div class="match-box">
+
+                <h3>
+                    Upcoming Fixture
+                </h3>
+
+                <div class="fixture-card">
+
+                    <p class="fixture-date">
+                        Sunday Match — 3:00 PM
+                    </p>
+
+                    <div class="fixture-versus">
+
+                        <span>
+                            Homecity FC
+                        </span>
+
+                        <span class="vs">
+                            VS
+                        </span>
+
+                        <span>
+                            Thika United B
+                        </span>
+
+                    </div>
+
+                    <p class="match-meta">
+                        Kipara Grounds, Kisii Estate
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- League Table -->
+
+            <div class="match-box">
+
+                <h3>
+                    League Table
+                </h3>
+
+                <table class="standings-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Pos</th>
+                            <th>Club</th>
+                            <th>Pts</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr class="leader-row">
+
+                            <td>
+                                1
+                            </td>
+
+                            <td>
+                                <strong>
+                                    Homecity FC
+                                </strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    12
+                                </strong>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                2
+                            </td>
+
+                            <td>
+                                Kiambu Warriors
+                            </td>
+
+                            <td>
+                                9
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                Estate Stars FC
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="view-more-wrapper">
+
+            <a
+                href="/match-center"
+                class="view-more-link"
+            >
+                View Full Fixtures & Standings
+
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAN SHOP ================= -->
+
+<section
+    class="section-white match-center"
+    id="shop"
+>
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Official Fan Shop
+        </h2>
+
+        <div class="shop-grid">
+
+            <!-- Home Kit -->
+
+            <div class="product-card">
+
+                <div class="product-img-wrap">
+
+                    <img
+                        src="/images/homekit.png"
+                        alt="2026 Official Home Jersey"
+                        class="product-img"
+                    />
+
+                </div>
+
+                <h4>
+                    2026 Official Home Jersey
+                </h4>
+
+                <p>
+                    Vibrant Yellow / Premium Matte Finish
+                </p>
+
+                <div class="product-meta">
+
+                    <span class="product-price">
+                        KES 3,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Away Kit -->
+
+            <div class="product-card">
+
+                <div class="product-img-wrap">
+
+                    <img
+                        src="/images/Awaykit.png"
+                        alt="2026 Official Away Jersey"
+                        class="product-img"
+                    />
+
+                </div>
+
+                <h4>
+                    2026 Official Away Jersey
+                </h4>
+
+                <p>
+                    Crisp Matte White / Metallic Gold Trim
+                </p>
+
+                <div class="product-meta">
+
+                    <span class="product-price">
+                        KES 3,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cap -->
+
+            <div class="product-card">
+
+                <div class="product-img-wrap">
+
+                    <img
+                        src="/images/Homecitycap.png"
+                        alt="Homecity FC Premium Cap"
+                        class="product-img"
+                    />
+
+                </div>
+
+                <h4>
+                    Premium Structured Cap
+                </h4>
+
+                <p>
+                    Pitch Black Twill / 3D Yellow Embroidery
+                </p>
+
+                <div class="product-meta">
+
+                    <span class="product-price">
+                        KES 1,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="view-more-wrapper">
+
+            <a
+                href="/fan-shop"
+                class="view-more-link"
+            >
+                Browse Full Collection
+
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACADEMY ================= -->
+
+<section
+    class="section-white academy-section"
+    id="academy"
+>
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            HOMECITY ACADEMY
+        </h2>
+
+        <div class="academy-grid">
+
+            <div class="academy-card">
+
+                <h3>
+                    Under 7
+                </h3>
+
+                <p>
+                    Nurturing foundational agility and passion.
+                </p>
+
+            </div>
+
+
+            <div class="academy-card">
+
+                <h3>
+                    Under 9
+                </h3>
+
+                <p>
+                    Developing essential technical skills.
+                </p>
+
+            </div>
+
+
+            <div class="academy-card">
+
+                <h3>
+                    Under 11
+                </h3>
+
+                <p>
+                    Introducing tactical play and teamwork.
+                </p>
+
+            </div>
+
+
+            <div class="academy-card">
+
+                <h3>
+                    Under 13
+                </h3>
+
+                <p>
+                    Elite training path for top club prospects.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="view-more-wrapper">
+
+            <a
+                href="/academy"
+                class="view-more-link"
+            >
+                Explore Academy Programs
+
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEDIA GALLERY ================= -->
+
+<section
+    class="section-white"
+    id="gallery"
+>
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Club Media Gallery
+        </h2>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+
+                <img
+                    src="/images/training.png"
+                    alt="Senior Team Training"
+                    class="gallery-img"
+                    loading="lazy"
+                />
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-tag">
+                        Behind The Scenes
+                    </span>
+
+                    <h3>
+                        Senior Team Training
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="/images/academy.png"
+                    alt="Homecity Academy"
+                    class="gallery-img"
+                    loading="lazy"
+                />
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-tag">
+                        Exclusives
+                    </span>
+
+                    <h3>
+                        Academy Training
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="/images/fans.png"
+                    alt="Homecity FC Fans"
+                    class="gallery-img"
+                    loading="lazy"
+                />
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-tag">
+                        Exclusives
+                    </span>
+
+                    <h3>
+                        Our Dear Fans
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PARTNERS ================= -->
+
+<section
+    class="section-white partnership-section"
+    id="partners"
+>
+
+    <div class="section-container">
+
+        <span class="partnership-label">
+            PARTNERSHIP
+        </span>
+
+        <h2 class="partnership-title">
+            SPONSORS & DONATIONS
+        </h2>
+
+        <p class="partnership-description">
+            Home City FC is looking for partners and sponsors to help
+            grow our community club. Your support changes lives in
+            Kisii Estate.
+        </p>
+
+        <div class="partner-cards-grid">
+
+            <div class="partner-card">
+
+                <div class="partner-icon">
+                    👨‍💼
+                </div>
+
+                <h3>
+                    Coaching Staff
+                </h3>
+
+                <p>
+                    Support our technical team — fund coaching,
+                    equipment and training resources.
+                </p>
+
+                <span class="slot-badge">
+                    SLOT AVAILABLE
+                </span>
+
+            </div>
+
+
+            <div class="partner-card">
+
+                <div class="partner-icon">
+                    👕
+                </div>
+
+                <h3>
+                    Shirt Sponsor
+                </h3>
+
+                <p>
+                    Get your brand on the front of our home and
+                    away kits, seen at every match and event.
+                </p>
+
+                <span class="slot-badge">
+                    SLOT AVAILABLE
+                </span>
+
+            </div>
+
+
+            <div class="partner-card">
+
+                <div class="partner-icon">
+                    🚌
+                </div>
+
+                <h3>
+                    Transport Sponsor
+                </h3>
+
+                <p>
+                    Cover away match transport costs for the squad.
+                    Help us travel to every fixture.
+                </p>
+
+                <span class="slot-badge">
+                    SLOT AVAILABLE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="view-more-wrapper">
+
+            <a
+                href="/partners"
+                class="view-more-link"
+            >
+                Become a Partner
+
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SUPPORT ================= -->
+
+<section
+    class="section-white support-section"
+    id="support"
+>
+
+    <div class="section-container support-container">
+
+        <div class="support-header-block">
+
+            <h2 class="support-main-title">
+                🧡 SUPPORT THE CLUB
+            </h2>
+
+            <p class="support-intro-text">
+                We welcome donations from locals, the government,
+                international well-wishers and football fans everywhere.
+                Every shilling goes directly into developing football
+                in Kisii Estate, Thika.
+            </p>
+
+        </div>
+
+
+        <div class="donation-tier-wrapper">
+
+            <button class="amt-pill active">
+                KES 500
+            </button>
+
+            <button class="amt-pill">
+                KES 1,000
+            </button>
+
+            <button class="amt-pill">
+                KES 2,500
+            </button>
+
+            <button class="amt-pill">
+                KES 5,000
+            </button>
+
+            <button class="amt-pill">
+                Custom Amount
+            </button>
+
+        </div>
+
+
+        <div class="donation-gateways-flex">
+
+            <button class="action-btn-mpesa">
+
+                <span class="btn-emoji">
+                    💚
+                </span>
+
+                DONATE VIA M-PESA
+
+            </button>
+
+
+            <button class="action-btn-sponsor">
+
+                <span class="btn-emoji">
+                    💳
+                </span>
+
+                BECOME A SPONSOR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+```
+
+</BaseLayout>

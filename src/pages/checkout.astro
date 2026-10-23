@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/fan-shop.css";
+---
+<BaseLayout title="Checkout | Homecity FC" activePage="fan-shop">
+  <main class="commerce-page checkout-page">
+    <section class="commerce-hero commerce-hero-compact"><div class="commerce-container commerce-hero-inner"><p class="eyebrow">ALMOST THERE</p><h1>Secure your <span>order</span></h1><p>Enter your contact and delivery details so the club can follow up about your order.</p></div></section>
+    <section class="commerce-container checkout-content">
+      <div class="page-heading"><div><p class="eyebrow">CHECKOUT</p><h2>Customer details</h2></div><a class="text-link" href="/cart">← Back to cart</a></div>
+      <div id="checkout-empty" class="empty-state" hidden><h2>Your cart is empty</h2><p class="muted">Add a product before checking out.</p><a class="button button-primary" href="/fan-shop">Browse products</a></div>
+      <div class="checkout-layout" id="checkout-layout" hidden>
+        <form id="checkout-form" class="checkout-form" novalidate>
+          <section class="form-section"><h3><span>01</span> Contact information</h3><div class="form-grid"><label class="form-field"><span>Full name *</span><input name="fullName" autocomplete="name" required maxlength="100" /></label><label class="form-field"><span>Phone number *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 07xx xxx xxx" maxlength="25" /></label><label class="form-field form-field-full"><span>Email address (optional)</span><input name="email" type="email" autocomplete="email" maxlength="150" /></label></div></section>
+          <section class="form-section"><h3><span>02</span> Delivery details</h3><div class="form-grid"><label class="form-field"><span>County *</span><input name="county" autocomplete="address-level1" required maxlength="100" /></label><label class="form-field"><span>Town / area *</span><input name="town" autocomplete="address-level2" required maxlength="100" /></label><label class="form-field form-field-full"><span>Delivery address or collection details *</span><textarea name="address" rows="3" required maxlength="500" placeholder="Estate, street, landmark, or preferred collection details"></textarea></label><label class="form-field form-field-full"><span>Order notes (optional)</span><textarea name="notes" rows="2" maxlength="500" placeholder="Any extra details for the club"></textarea></label></div></section>
+          <p class="checkout-disclaimer">This checkout currently collects an order request in this browser only. It does not send your details to Homecity FC, create a server-side order, or process a payment until a backend and payment/order integration are connected.</p>
+          <button class="button button-primary button-full" type="submit">Review order request <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="checkout-message" role="status" aria-live="polite"></p>
+        </form>
+        <aside class="order-summary checkout-summary"><p class="eyebrow">YOUR ORDER</p><h2>Order summary</h2><div id="checkout-items" class="checkout-items"></div><div class="summary-line"><span>Items</span><strong id="checkout-count">0</strong></div><div class="summary-total"><span>Subtotal</span><strong id="checkout-subtotal">KES 0</strong></div><p class="summary-note">Delivery charges and payment method must be confirmed by the club before payment.</p><a class="text-link" href="/cart">Edit cart</a></aside>
+      </div>
+      <section class="order-review" id="order-review" hidden><div class="review-mark" aria-hidden="true">✓</div><p class="eyebrow">LOCAL PREVIEW ONLY</p><h2>Review your order request</h2><p class="muted">Check the details below. This preview is not submitted to the club and no payment has been made.</p><div id="review-details" class="review-details"></div><div class="review-actions"><button type="button" class="button button-outline" id="edit-order">Edit details</button><button type="button" class="button button-primary" id="confirm-preview">Save preview on this device</button></div><p class="form-message" id="review-message" role="status" aria-live="polite"></p></section>
+    </section>
+  </main>
+  <script src="/checkout.js" defer></script>
+</BaseLayout>

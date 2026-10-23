@@ -1,0 +1,271 @@
+
+---
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/senior-team.css";
+
+const galleryItems = [
+    {
+        title: "The Senior Team",
+        category: "Senior Team",
+        image: "/images/senior-team/team-squad.jpg",
+        alt: "Homecity FC senior team squad"
+    },
+    {
+        title: "Ready for Matchday",
+        category: "Matchday",
+        image: "/images/senior-team/matchday-1.jpg",
+        alt: "Homecity FC players preparing for a match"
+    },
+    {
+        title: "On the Training Ground",
+        category: "Training",
+        image: "/images/senior-team/training-1.jpg",
+        alt: "Homecity FC players during a training session"
+    },
+    {
+        title: "Matchday Action",
+        category: "Matchday",
+        image: "/images/senior-team/matchday-2.jpg",
+        alt: "Homecity FC players competing during a match"
+    },
+    {
+        title: "Building Together",
+        category: "Team Building",
+        image: "/images/senior-team/team-building-1.jpg",
+        alt: "Homecity FC senior team during a team building activity"
+    },
+    {
+        title: "Training with Purpose",
+        category: "Training",
+        image: "/images/senior-team/training-2.jpg",
+        alt: "Homecity FC players training together"
+    },
+    {
+        title: "The Team Behind the Badge",
+        category: "Senior Team",
+        image: "/images/senior-team/team-squad-2.jpg",
+        alt: "Homecity FC senior team members together"
+    },
+    {
+        title: "United Beyond the Pitch",
+        category: "Team Building",
+        image: "/images/senior-team/team-building-2.jpg",
+        alt: "Homecity FC players bonding as a team"
+    }
+];
+---
+
+<Layout>
+    <main class="senior-page">
+
+        <!-- HERO -->
+        <section class="senior-hero">
+            <div class="senior-hero__overlay"></div>
+
+            <div class="senior-container senior-hero__content">
+                <span class="senior-eyebrow">
+                    HOMECITY FOOTBALL CLUB
+                </span>
+
+                <h1>
+                    OUR <span>SENIOR TEAM</span>
+                </h1>
+
+                <p>
+                    Driven by ambition. United by football.
+                    Discover the players, the preparation and the
+                    passion behind Homecity FC.
+                </p>
+
+                <a href="#senior-intro" class="senior-btn senior-btn--yellow">
+                    Discover Our Team
+                    <span aria-hidden="true">↓</span>
+                </a>
+            </div>
+
+            <div class="senior-hero__label">
+                <span class="senior-hero__dot"></span>
+                ONE CLUB. ONE PURPOSE.
+            </div>
+        </section>
+
+        <!-- TEAM INTRODUCTION -->
+        <section class="senior-intro section-spacing" id="senior-intro">
+            <div class="senior-container senior-intro__grid">
+
+                <div class="senior-intro__heading">
+                    <span class="senior-eyebrow">
+                        THE JOURNEY CONTINUES
+                    </span>
+
+                    <h2>
+                        COMPETING WITH <span>PURPOSE.</span>
+                    </h2>
+                </div>
+
+                <div class="senior-intro__content">
+                    <p>
+                        Our senior team is competing in the
+                        <strong>Kiambu Sub-County League this season</strong>,
+                        representing Homecity FC with commitment,
+                        discipline and a determination to grow.
+                    </p>
+
+                    <p>
+                        We believe in hard work, teamwork and developing
+                        players who are ready to compete. As we take on
+                        the season, we welcome talented and dedicated
+                        players who want to be part of our journey.
+                    </p>
+
+                    <a href="/contact" class="senior-btn senior-btn--yellow">
+                        Join the Team
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="senior-gallery section-spacing" id="team-gallery">
+            <div class="senior-container">
+
+                <div class="senior-gallery__header">
+                    <div>
+                        <span class="senior-eyebrow">
+                            LIFE AT HOMECITY FC
+                        </span>
+
+                        <h2>
+                            BEYOND THE <span>90 MINUTES.</span>
+                        </h2>
+
+                        <p>
+                            Explore the people, preparation and moments
+                            that make our team.
+                        </p>
+                    </div>
+
+                    <div class="senior-gallery__counter">
+                        <span class="gallery-count">00</span>
+                        <span> MOMENTS</span>
+                    </div>
+                </div>
+
+                <!-- Filters are generated from the gallery categories -->
+                <div
+                    class="senior-gallery__filters"
+                    id="senior-gallery-filters"
+                    role="group"
+                    aria-label="Filter senior team gallery"
+                >
+                    <button
+                        type="button"
+                        class="gallery-filter is-active"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
+                        All
+                    </button>
+
+                    {/*
+                        These categories are generated from the current
+                        gallery data by the JavaScript file.
+                    */}
+                </div>
+
+                <!-- Gallery cards -->
+                <div class="senior-gallery__grid" id="senior-gallery-grid">
+                    {galleryItems.map((item, index) => (
+                        <article
+                            class:list={[
+                                "senior-gallery__item",
+                                index === 0 ? "gallery-item--featured" : ""
+                            ]}
+                            data-category={item.category.toLowerCase()}
+                        >
+                            <a
+                                href={item.image}
+                                class="senior-gallery__image-link"
+                                data-gallery-image
+                                aria-label={`View image: ${item.title}`}
+                            >
+                                <img
+                                    src={item.image}
+                                    alt={item.alt}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+
+                                <span
+                                    class="senior-gallery__zoom"
+                                    aria-hidden="true"
+                                >
+                                    ↗
+                                </span>
+                            </a>
+
+                            <div class="senior-gallery__caption">
+                                <div>
+                                    <span class="senior-gallery__category">
+                                        {item.category}
+                                    </span>
+                                    <h3>{item.title}</h3>
+                                </div>
+
+                                <span
+                                    class="senior-gallery__number"
+                                    aria-hidden="true"
+                                >
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <p class="senior-gallery__empty" hidden>
+                    No photos are available in this category yet.
+                </p>
+
+                <div class="senior-gallery__footer">
+                    <p>
+                        Every session, every match, one Homecity.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="senior-join">
+            <div class="senior-container senior-join__inner">
+                <div>
+                    <span class="senior-eyebrow">
+                        YOUR NEXT CHAPTER STARTS HERE
+                    </span>
+
+                    <h2>
+                        READY TO WEAR <span>THE BADGE?</span>
+                    </h2>
+
+                    <p>
+                        Have the talent, discipline and hunger to compete?
+                        Get in touch with Homecity FC.
+                    </p>
+                </div>
+
+                <a href="/contact" class="senior-btn senior-btn--dark">
+                    Contact the Club
+                    <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+</Layout>
+
+<script src="/senior-team.js" type="module" defer></script>
+    
+</script>

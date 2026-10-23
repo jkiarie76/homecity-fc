@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/fan-shop.css";
+---
+<BaseLayout title="Your Cart | Homecity FC" activePage="fan-shop">
+  <main class="commerce-page cart-page">
+    <section class="commerce-hero commerce-hero-compact"><div class="commerce-container commerce-hero-inner"><p class="eyebrow">YOUR SELECTION</p><h1>Your <span>Cart</span></h1><p>Review your Homecity FC gear before checkout.</p></div></section>
+    <section class="commerce-container cart-content">
+      <div class="page-heading"><div><p class="eyebrow">SHOPPING BAG</p><h2 id="cart-heading">Items in your cart</h2></div><a class="text-link" href="/fan-shop">← Continue shopping</a></div>
+      <div id="cart-empty" class="empty-state" hidden><div class="empty-icon" aria-hidden="true">🛍</div><h2>Your cart is waiting for you</h2><p class="muted">You haven’t added any products yet.</p><a class="button button-primary" href="/fan-shop">Explore the fan shop</a></div>
+      <div class="cart-layout" id="cart-layout" hidden>
+        <section class="cart-items-panel" aria-label="Cart items"><div class="cart-items-header"><span>Product</span><span>Quantity</span><span>Total</span></div><div id="cart-items"></div><button type="button" class="text-button clear-cart" id="clear-cart">Clear cart</button></section>
+        <aside class="order-summary"><p class="eyebrow">SUMMARY</p><h2>Order summary</h2><div class="summary-line"><span>Items (<span id="summary-item-count">0</span>)</span><strong id="cart-subtotal">KES 0</strong></div><div class="summary-line"><span>Delivery</span><span class="muted">Confirmed at checkout</span></div><div class="summary-total"><span>Subtotal</span><strong id="cart-total">KES 0</strong></div><p class="summary-note">Delivery charges, where applicable, will be confirmed before your order is finalised.</p><a class="button button-primary button-full" href="/checkout">Proceed to checkout <span aria-hidden="true">→</span></a><a class="button button-outline button-full" href="/fan-shop">Continue shopping</a></aside>
+      </div>
+    </section>
+  </main>
+  <script src="/cart.js" defer></script>
+</BaseLayout>

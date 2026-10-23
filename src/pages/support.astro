@@ -1,0 +1,382 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import "../styles/support.css";
+---
+
+<BaseLayout
+    title="Support Us | Homecity FC"
+    description="Support Homecity FC and help us develop football, young talent and our community."
+>
+    <Header activePage="support" />
+
+    <main>
+        <!-- HERO -->
+        <section class="support-hero">
+            <div class="hero-overlay"></div>
+
+            <div class="support-hero-content">
+                <span class="hero-label">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    SUPPORT HOMECITY FC
+                </span>
+
+                <h1>
+                    SUPPORT<br />
+                    <span>THE CITY.</span>
+                </h1>
+
+                <p>
+                    Every contribution helps us build a stronger club,
+                    develop young talent and create opportunities through football.
+                </p>
+
+                <a href="#donate" class="hero-btn">
+                    DONATE NOW
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="hero-scroll" aria-hidden="true">
+                <span>SCROLL TO SUPPORT</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="support-intro">
+            <div class="section-container">
+                <div class="intro-content">
+                    <span class="section-label">ONE CLUB. ONE COMMUNITY.</span>
+
+                    <h2>
+                        YOUR SUPPORT
+                        <span>MATTERS.</span>
+                    </h2>
+
+                    <p>
+                        Homecity FC is more than a football club. We are building
+                        a football community that gives players a platform,
+                        inspires young people and brings people together.
+                    </p>
+
+                    <p>
+                        Whether you give KSh 500 or KSh 50,000, your contribution
+                        becomes part of the journey.
+                    </p>
+                </div>
+
+                <div class="intro-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                        <strong>01</strong>
+                        <span>Football Club</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <strong>01</strong>
+                        <span>United Community</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                        <strong>∞</strong>
+                        <span>Possibilities</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DONATION -->
+        <section class="donation-section" id="donate">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">MAKE AN IMPACT</span>
+
+                    <h2>
+                        CHOOSE YOUR
+                        <span>SUPPORT.</span>
+                    </h2>
+
+                    <p>Select an amount below or enter your own contribution.</p>
+                </div>
+
+                <div class="donation-layout">
+                    <!-- Donation form -->
+                    <div class="donation-card">
+                        <div class="donation-card-header">
+                            <span>01</span>
+                            <h3>DONATION AMOUNT</h3>
+                        </div>
+
+                        <div class="amount-grid">
+                            <button class="amount-btn" type="button" data-amount="500">KSh 500</button>
+                            <button class="amount-btn" type="button" data-amount="1000">KSh 1,000</button>
+                            <button class="amount-btn" type="button" data-amount="2500">KSh 2,500</button>
+                            <button class="amount-btn" type="button" data-amount="5000">KSh 5,000</button>
+                        </div>
+
+                        <div class="custom-amount">
+                            <label for="customAmount">OR ENTER YOUR OWN AMOUNT</label>
+                            <div class="amount-input">
+                                <span>KSh</span>
+                                <input
+                                    type="number"
+                                    id="customAmount"
+                                    placeholder="Enter amount"
+                                    min="1"
+                                    inputmode="numeric"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="donation-card-header purpose-header">
+                            <span>02</span>
+                            <h3>WHERE SHOULD IT GO?</h3>
+                        </div>
+
+                        <div class="purpose-grid">
+                            <label class="purpose-option">
+                                <input type="radio" name="purpose" value="First Team" checked />
+                                <span class="purpose-box">
+                                    <i class="fas fa-futbol" aria-hidden="true"></i>
+                                    <strong>First Team</strong>
+                                    <small>Support our senior squad</small>
+                                </span>
+                            </label>
+
+                            <label class="purpose-option">
+                                <input type="radio" name="purpose" value="Academy" />
+                                <span class="purpose-box">
+                                    <i class="fas fa-child" aria-hidden="true"></i>
+                                    <strong>Academy</strong>
+                                    <small>Develop the next generation</small>
+                                </span>
+                            </label>
+
+                            <label class="purpose-option">
+                                <input type="radio" name="purpose" value="Equipment" />
+                                <span class="purpose-box">
+                                    <i class="fas fa-shirt" aria-hidden="true"></i>
+                                    <strong>Equipment</strong>
+                                    <small>Football equipment &amp; kits</small>
+                                </span>
+                            </label>
+
+                            <label class="purpose-option">
+                                <input type="radio" name="purpose" value="Community" />
+                                <span class="purpose-box">
+                                    <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                                    <strong>Community</strong>
+                                    <small>Community football programmes</small>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="donation-card-header purpose-header">
+                            <span>03</span>
+                            <h3>YOUR DETAILS</h3>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">FULL NAME</label>
+                                <input type="text" id="fullName" autocomplete="name" placeholder="Your full name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">PHONE NUMBER</label>
+                                <input type="tel" id="phone" autocomplete="tel" placeholder="+254 7XX XXX XXX" />
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="email">EMAIL ADDRESS</label>
+                                <input type="email" id="email" autocomplete="email" placeholder="you@example.com" />
+                            </div>
+                        </div>
+
+                        <button class="donate-button" type="button">
+                            CONTINUE TO PAYMENT
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+
+                        <p class="payment-note">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                            Secure payment processing will be connected here.
+                        </p>
+                    </div>
+
+                    <!-- Donation summary -->
+                    <aside class="donation-summary">
+                        <div class="summary-top">
+                            <span>YOUR CONTRIBUTION</span>
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="summary-amount">
+                            <small>TOTAL DONATION</small>
+                            <strong id="displayAmount">KSh 0</strong>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-row">
+                            <span>Purpose</span>
+                            <strong id="displayPurpose">First Team</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Payment</span>
+                            <strong>M-Pesa</strong>
+                        </div>
+
+                        <div class="summary-message">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
+                            <p>
+                                Your contribution may seem small,
+                                but together we can build something
+                                much bigger than football.
+                            </p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT -->
+        <section class="impact-section">
+            <div class="section-container">
+                <div class="section-heading light">
+                    <span class="section-label">WHERE YOUR SUPPORT GOES</span>
+                    <h2>
+                        BUILDING MORE
+                        <span>THAN FOOTBALL.</span>
+                    </h2>
+                </div>
+
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">01</div>
+                        <i class="fas fa-child" aria-hidden="true"></i>
+                        <h3>YOUTH DEVELOPMENT</h3>
+                        <p>
+                            Help young players access structured football
+                            training and development opportunities.
+                        </p>
+                    </div>
+
+                    <div class="impact-card">
+                        <div class="impact-number">02</div>
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                        <h3>FOOTBALL DEVELOPMENT</h3>
+                        <p>
+                            Support training, equipment, facilities and
+                            the continued growth of the club.
+                        </p>
+                    </div>
+
+                    <div class="impact-card">
+                        <div class="impact-number">03</div>
+                        <i class="fas fa-people-group" aria-hidden="true"></i>
+                        <h3>COMMUNITY</h3>
+                        <p>
+                            Help us use football to create positive
+                            opportunities within our community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta">
+            <div class="cta-overlay"></div>
+
+            <div class="cta-content">
+                <span class="section-label">THE CITY NEEDS YOU</span>
+
+                <h2>
+                    BE PART OF<br />
+                    <span>THE JOURNEY.</span>
+                </h2>
+
+                <p>
+                    Stand with Homecity FC. Support the players.
+                    Support the academy. Support the community.
+                </p>
+
+                <a href="#donate" class="cta-button">
+                    SUPPORT HOMECITY
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- <Footer /> -->
+</BaseLayout>
+
+<script>
+    // Donation amount selection and summary.
+    const amountButtons = document.querySelectorAll<HTMLButtonElement>(".amount-btn");
+    const customAmount = document.querySelector<HTMLInputElement>("#customAmount");
+    const displayAmount = document.querySelector<HTMLElement>("#displayAmount");
+
+    function updateAmount(amount: string | number | undefined) {
+        if (!displayAmount) return;
+
+        const numericAmount = Number(amount);
+        if (!amount || !Number.isFinite(numericAmount) || numericAmount <= 0) {
+            displayAmount.textContent = "KSh 0";
+            return;
+        }
+
+        displayAmount.textContent = "KSh " + numericAmount.toLocaleString("en-KE");
+    }
+
+    amountButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            amountButtons.forEach((item) => item.classList.remove("selected"));
+            button.classList.add("selected");
+
+            if (customAmount) customAmount.value = "";
+            updateAmount(button.dataset.amount);
+        });
+    });
+
+    customAmount?.addEventListener("input", () => {
+        amountButtons.forEach((button) => button.classList.remove("selected"));
+        updateAmount(customAmount.value);
+    });
+
+    // Donation purpose summary.
+    const purposeInputs = document.querySelectorAll<HTMLInputElement>('input[name="purpose"]');
+    const displayPurpose = document.querySelector<HTMLElement>("#displayPurpose");
+
+    purposeInputs.forEach((input) => {
+        input.addEventListener("change", () => {
+            if (input.checked && displayPurpose) {
+                displayPurpose.textContent = input.value;
+            }
+        });
+    });
+
+    // Smooth-scroll only for on-page anchor links.
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+            const href = anchor.getAttribute("href");
+            if (!href || href === "#") return;
+
+            const target = document.querySelector<HTMLElement>(href);
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+    });
+
+    // Mobile navigation is intentionally handled by the shared Header.astro component.
+    // Do not add a second hamburger handler here.
+</script>

@@ -1,0 +1,571 @@
+
+:root {
+    --women-yellow: #fec107;
+    --women-green: #78bd43;
+    --women-black: #0d0d0d;
+    --women-carbon: #161616;
+    --women-card: #1e1e1e;
+    --women-white: #ffffff;
+    --women-muted: #aaaaaa;
+    --women-border: rgba(254, 193, 7, 0.18);
+}
+
+.women-page {
+    overflow: hidden;
+    background: var(--women-black);
+    color: var(--women-white);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.women-page *,
+.women-page *::before,
+.women-page *::after {
+    box-sizing: border-box;
+}
+
+.women-container {
+    width: min(1240px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.women-section {
+    padding: 100px 0;
+}
+
+.women-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--women-yellow);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.7;
+    text-transform: uppercase;
+}
+
+/* HERO */
+
+.women-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 680px;
+    padding: 100px 0 80px;
+    isolation: isolate;
+    background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.96), rgba(8, 8, 8, 0.65)),
+        url("/images/women/women-football-hero.jpg") center 40% / cover no-repeat;
+}
+
+.women-hero-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        linear-gradient(0deg, var(--women-black), transparent 35%),
+        linear-gradient(90deg, rgba(120, 189, 67, 0.08), transparent 70%);
+}
+
+.women-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.women-hero h1 {
+    max-width: 950px;
+    margin: 0;
+    font-size: clamp(3.2rem, 8vw, 6.7rem);
+    font-weight: 950;
+    letter-spacing: -3px;
+    line-height: 0.98;
+}
+
+.women-hero h1 span {
+    display: block;
+    color: var(--women-yellow);
+}
+
+.women-hero-description {
+    max-width: 660px;
+    margin: 28px 0 30px;
+    color: #dedede;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.women-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.women-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 49px;
+    padding: 14px 23px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.women-btn:hover {
+    transform: translateY(-3px);
+}
+
+.women-btn-primary {
+    background: var(--women-yellow);
+    color: #111111;
+}
+
+.women-btn-primary:hover {
+    background: #ffda50;
+}
+
+.women-btn-outline {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: var(--women-white);
+}
+
+.women-btn-outline:hover {
+    border-color: var(--women-yellow);
+    color: var(--women-yellow);
+}
+
+.women-hero-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 45px;
+    color: #d0d0d0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    line-height: 1.8;
+}
+
+.women-status-dot {
+    flex: 0 0 9px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--women-green);
+    box-shadow: 0 0 12px rgba(120, 189, 67, 0.45);
+}
+
+/* VISION */
+
+.women-vision {
+    background: var(--women-carbon);
+}
+
+.women-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 75px;
+}
+
+.women-vision h2,
+.women-players h2,
+.women-partners h2,
+.women-section-heading h2,
+.women-closing h2 {
+    margin: 0;
+    font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -1.4px;
+    line-height: 1.13;
+}
+
+.women-vision h2 span,
+.women-players h2 span,
+.women-partners h2 span,
+.women-section-heading h2 span,
+.women-closing h2 span {
+    color: var(--women-yellow);
+}
+
+.women-vision-copy p,
+.women-players-content > p,
+.women-partners-copy p {
+    margin: 0 0 17px;
+    color: #c4c4c4;
+    font-size: 0.96rem;
+    line-height: 1.95;
+}
+
+.women-vision-copy p:last-child,
+.women-players-content > p:last-of-type,
+.women-partners-copy p:last-of-type {
+    margin-bottom: 0;
+}
+
+.women-vision-copy .women-vision-highlight {
+    margin-top: 25px;
+    padding-left: 18px;
+    border-left: 3px solid var(--women-yellow);
+    color: var(--women-white);
+    font-weight: 750;
+}
+
+/* SECTION HEADING */
+
+.women-section-heading {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.women-section-heading > p {
+    max-width: 620px;
+    margin: 18px auto 0;
+    color: var(--women-muted);
+    font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+/* OPPORTUNITIES */
+
+.women-opportunity {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(254, 193, 7, 0.05), transparent 55%),
+        var(--women-black);
+}
+
+.women-opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.women-opportunity-card {
+    position: relative;
+    min-width: 0;
+    padding: 34px 28px;
+    border: 1px solid var(--women-border);
+    border-radius: 4px;
+    background: var(--women-card);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.women-opportunity-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--women-yellow);
+}
+
+.women-card-number {
+    position: absolute;
+    top: 24px;
+    right: 25px;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.women-card-icon {
+    margin-bottom: 24px;
+    font-size: 2rem;
+}
+
+.women-opportunity-card h3 {
+    margin: 0 0 15px;
+    font-size: 1.25rem;
+    font-weight: 850;
+}
+
+.women-opportunity-card p {
+    margin: 0;
+    color: var(--women-muted);
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+/* PLAYERS */
+
+.women-players {
+    background: var(--women-carbon);
+}
+
+.women-players-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.women-players-content > p {
+    margin-top: 22px;
+}
+
+.women-players-content .women-small-note {
+    margin-top: 16px;
+    color: #8f8f8f;
+    font-size: 0.76rem;
+    line-height: 1.8;
+}
+
+.women-players-content .women-btn {
+    margin-top: 28px;
+}
+
+.women-players-visual {
+    position: relative;
+    min-width: 0;
+    padding: 0 14px 14px 0;
+}
+
+.women-visual-frame {
+    position: relative;
+    z-index: 1;
+    min-height: 430px;
+    overflow: hidden;
+    background: #252525;
+}
+
+.women-visual-frame img {
+    display: block;
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.women-visual-frame:hover img {
+    transform: scale(1.04);
+}
+
+.women-visual-frame::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent 65%);
+    content: "";
+    pointer-events: none;
+}
+
+.women-visual-caption {
+    position: absolute;
+    z-index: 2;
+    right: 24px;
+    bottom: 26px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+}
+
+.women-visual-caption span {
+    color: #e0e0e0;
+}
+
+.women-visual-caption strong {
+    color: var(--women-yellow);
+    font-size: 1.2rem;
+}
+
+.women-visual-accent {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    height: 55%;
+    border-right: 3px solid var(--women-yellow);
+    border-bottom: 3px solid var(--women-yellow);
+}
+
+/* PARTNERS */
+
+.women-partners {
+    background: var(--women-black);
+}
+
+.women-partners-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 80px;
+}
+
+.women-partners-copy .women-btn {
+    margin-top: 27px;
+}
+
+/* CLOSING */
+
+.women-closing {
+    position: relative;
+    isolation: isolate;
+    padding: 100px 0;
+    overflow: hidden;
+    background:
+        url("/images/women/women-football-hero.jpg") center / cover no-repeat,
+        #181818;
+}
+
+.women-closing-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.96),
+        rgba(8, 8, 8, 0.82)
+    );
+}
+
+.women-closing-content {
+    text-align: center;
+}
+
+.women-closing h2 {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.women-closing-content > p:not(.women-closing-signoff) {
+    max-width: 650px;
+    margin: 22px auto 30px;
+    color: #d0d0d0;
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+.women-closing-signoff {
+    margin: 32px 0 0;
+    color: var(--women-yellow);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.9;
+}
+
+/* ACCESSIBILITY */
+
+.women-page a:focus-visible {
+    outline: 2px solid var(--women-white);
+    outline-offset: 4px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .women-section {
+        padding: 75px 0;
+    }
+
+    .women-vision-grid,
+    .women-players-grid,
+    .women-partners-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .women-opportunity-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .women-opportunity-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .women-players-visual {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 600px) {
+    .women-container {
+        width: min(100% - 32px, 1240px);
+    }
+
+    .women-section {
+        padding: 60px 0;
+    }
+
+    .women-hero {
+        min-height: 620px;
+        padding: 95px 0 60px;
+        background-position: 58% center;
+    }
+
+    .women-hero h1 {
+        font-size: clamp(2.8rem, 12.5vw, 4.3rem);
+        letter-spacing: -1.8px;
+    }
+
+    .women-hero-description {
+        font-size: 0.94rem;
+        line-height: 1.85;
+    }
+
+    .women-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .women-btn {
+        width: 100%;
+    }
+
+    .women-hero-note {
+        align-items: flex-start;
+        font-size: 0.62rem;
+        letter-spacing: 0.7px;
+    }
+
+    .women-vision h2,
+    .women-players h2,
+    .women-partners h2,
+    .women-section-heading h2,
+    .women-closing h2 {
+        font-size: 2.25rem;
+    }
+
+    .women-opportunity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .women-opportunity-card:last-child {
+        grid-column: auto;
+    }
+
+    .women-opportunity-card {
+        padding: 28px 24px;
+    }
+
+    .women-visual-frame,
+    .women-visual-frame img {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .women-closing {
+        padding: 75px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .women-page *,
+    .women-page *::before,
+    .women-page *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,99 @@
+
+backend:
+  name: github
+  repo: jkiarie76/homecity-fc
+  branch: master
+
+media_folder: public/images/news
+public_folder: /images/news
+
+site_url: http://localhost:4321
+display_url: http://localhost:4321
+
+collections:
+  - name: news
+    label: News & Updates
+    label_singular: News Item
+    folder: src/content/news
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{type}}"
+    sortable_fields:
+      - publishedAt
+      - title
+    fields:
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Slug
+        name: slug
+        widget: string
+        hint: "Use lowercase words separated by hyphens. Keep existing article slugs unchanged."
+
+      - label: Summary
+        name: summary
+        widget: text
+
+      - label: Category
+        name: type
+        widget: select
+        options:
+          - { label: Story, value: story }
+          - { label: Event, value: event }
+          - { label: Memo, value: memo }
+
+      - label: Cover Image
+        name: image
+        widget: image
+        required: true
+
+      - label: Publication Date
+        name: publishedAt
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+
+      - label: Publication Status
+        name: status
+        widget: select
+        options:
+          - { label: Draft, value: draft }
+          - { label: Published, value: published }
+        default: draft
+
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+
+      - label: Event Date
+        name: eventDate
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        required: false
+
+      - label: Event Time
+        name: eventTime
+        widget: string
+        required: false
+
+      - label: Venue
+        name: venue
+        widget: string
+        required: false
+
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+
+      - label: Article Content
+        name: body
+        widget: markdown

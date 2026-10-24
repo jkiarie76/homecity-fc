@@ -1,21 +1,35 @@
 
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { newsItems } from "../../data/news.js";
+import { getCollection, render } from "astro:content";
 import "../../styles/news.css";
 
-export function getStaticPaths() {
-    return newsItems
-        .filter((item) => item.status === "published")
-        .map((item) => ({
-            params: { slug: item.slug },
-            props: { item },
-        }));
+const newsItems = await getCollection(
+    "news",
+    ({ data }) => data.status === "published"
+);
+
+export async function getStaticPaths() {
+    const newsItems = await getCollection(
+        "news",
+        ({ data }) => data.status === "published"
+    );
+
+    return newsItems.map((entry) => ({
+        params: { slug: entry.data.slug },
+        props: { entry },
+    }));
 }
 
-const { item } = Astro.props;
+const { entry } = Astro.props;
+const item = {
+    ...entry.data,
+    slug: entry.data.slug,
+};
 
-const formatDate = (dateString) => {
+const { Content } = await render(entry);
+
+const formatDate = (dateString: string | undefined) => {
     if (!dateString) return "";
 
     return new Date(`${dateString}T12:00:00Z`).toLocaleDateString(
@@ -29,7 +43,10 @@ const formatDate = (dateString) => {
     );
 };
 
-const getCategory = (newsItem) => {
+const getCategory = (newsItem: {
+    type: "story" | "event" | "memo";
+    eventDate?: string;
+}) => {
     if (newsItem.type === "story") return "Stories";
     if (newsItem.type === "memo") return "Memos";
     if (!newsItem.eventDate) return "Upcoming Events";
@@ -41,6 +58,7 @@ const getCategory = (newsItem) => {
         : "Upcoming Events";
 };
 ---
+
 
 <BaseLayout
     title={`${item.title} | Homecity FC`}
@@ -112,11 +130,7 @@ const getCategory = (newsItem) => {
             }
 
             <div class="news-article-body">
-                {
-                    item.body?.map((paragraph) => (
-                        <p>{paragraph}</p>
-                    ))
-                }
+                <Content />
             </div>
 
             {

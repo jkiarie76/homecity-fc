@@ -1,12 +1,20 @@
 
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { newsItems } from "../../data/news.js";
+import { getCollection } from "astro:content";
 import "../../styles/news.css";
 
-const publishedItems = newsItems.filter(
-    (item) => item.status === "published"
+const entries = await getCollection(
+    "news",
+    ({ data }) => data.status === "published"
 );
+
+const newsItems = entries.map((entry) => ({
+    ...entry.data,
+    slug: entry.data.slug,
+}));
+
+const publishedItems = newsItems;
 
 const featuredItem =
     publishedItems.find((item) => item.featured) ?? publishedItems[0];
@@ -15,7 +23,7 @@ const otherItems = publishedItems.filter(
     (item) => item.slug !== featuredItem?.slug
 );
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: string | undefined) => {
     if (!dateString) return "";
 
     return new Date(`${dateString}T12:00:00Z`).toLocaleDateString(
@@ -29,10 +37,12 @@ const formatDate = (dateString) => {
     );
 };
 
-const getCategory = (item) => {
+const getCategory = (item: {
+    type: "story" | "event" | "memo";
+    eventDate?: string;
+}) => {
     if (item.type === "story") return "Stories";
     if (item.type === "memo") return "Memos";
-
     if (!item.eventDate) return "Upcoming Events";
 
     const today = new Date().toISOString().slice(0, 10);
@@ -42,7 +52,10 @@ const getCategory = (item) => {
         : "Upcoming Events";
 };
 
-const getFilterCategory = (item) => {
+const getFilterCategory = (item: {
+    type: "story" | "event" | "memo";
+    eventDate?: string;
+}) => {
     if (item.type === "story") return "story";
     if (item.type === "memo") return "memo";
 
@@ -314,12 +327,19 @@ const getFilterCategory = (item) => {
 
     <script src="/news.js" is:inline></script>
 
-    <script>
-        const emptyResetButton = document.querySelector("[data-empty-reset]");
-        const resetFiltersButton = document.querySelector("#news-reset-filters");
+    
+<script>
+    const emptyResetButton = document.querySelector<HTMLButtonElement>(
+        "[data-empty-reset]"
+    );
 
-        emptyResetButton?.addEventListener("click", () => {
-            resetFiltersButton?.click();
-        });
-    </script>
+    const resetFiltersButton = document.querySelector<HTMLButtonElement>(
+        "#news-reset-filters"
+    );
+
+    emptyResetButton?.addEventListener("click", () => {
+        resetFiltersButton?.click();
+    });
+</script>
+
 </BaseLayout>

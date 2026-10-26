@@ -115,27 +115,33 @@ const aboutActive = aboutPages.includes(currentPage);
                     <ul class="hc-dropdown-menu">
                         <li>
                             <a
-                                href="/about"
-                                class:active={currentPage === "about" || currentPage === "overview"}
-                                aria-current={(currentPage === "about" || currentPage === "overview") ? "page" : undefined}
-                            >
-                                Overview
-                            </a>
+                            href="/about"
+                            class:list={[
+                                { active: currentPage === "about" || currentPage === "overview" }
+                            ]}
+                            aria-current={(currentPage === "about" || currentPage === "overview") ? "page" : undefined}
+                        >
+                            Overview
+                        </a>
                         </li>
                         <li>
                             <a
-                                href="/senior-team"
-                                class:active={currentPage === "senior-team"}
-                                aria-current={currentPage === "senior-team" ? "page" : undefined}
+                                href="/about"
+                                class:list={[
+                                    { active: currentPage === "senior-team" || currentPage === "overview" }
+                                ]}
+                                aria-current={(currentPage === "senior-team" || currentPage === "overview") ? "page" : undefined}
                             >
                                 Senior Team
                             </a>
                         </li>
                         <li>
                             <a
-                                href="/academies"
-                                class:active={currentPage === "academies"}
-                                aria-current={currentPage === "academies" ? "page" : undefined}
+                                href="/about"
+                                class:list={[
+                                    { active: currentPage === "academies" || currentPage === "overview" }
+                                ]}
+                                aria-current={(currentPage === "academies" || currentPage === "overview") ? "page" : undefined}
                             >
                                 Academies
                             </a>
@@ -143,7 +149,9 @@ const aboutActive = aboutPages.includes(currentPage);
                         <li>
                             <a
                                 href="/women-team"
-                                class:active={currentPage === "women-team"}
+                                class:list={[
+                                    { active: currentPage === "women-team" }
+                                ]}
                                 aria-current={currentPage === "women-team" ? "page" : undefined}
                             >
                                 Women Team

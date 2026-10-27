@@ -190,10 +190,10 @@ collections:
             max: 6
 
 
-  
+
   - name: match-center-settings
     label: Match Centre Settings
-    description: Edit the Match Centre page sections and display options.
+    description: Edit the Match Centre page content and display options.
     media_folder: public/images
     public_folder: /images
     files:
@@ -201,42 +201,17 @@ collections:
         label: Match Centre Page Settings
         file: src/content/settings/match-center.md
         fields:
-          - label: Hero Label
-            name: heroLabel
-            widget: string
+          - { label: Hero Label, name: heroLabel, widget: string }
+          - { label: Hero Heading First Part, name: heroTitle, widget: string }
+          - { label: Hero Heading Highlight, name: heroHighlight, widget: string }
+          - { label: Hero Description, name: heroDescription, widget: text }
+          - { label: Hero Background Image, name: heroImage, widget: image }
 
-          - label: Hero Heading First Part
-            name: heroTitle
-            widget: string
+          - { label: Next Match Section Label, name: nextMatchLabel, widget: string }
+          - { label: Next Match Heading, name: nextMatchTitle, widget: string }
 
-          - label: Hero Heading Highlight
-            name: heroHighlight
-            widget: string
-
-          - label: Hero Description
-            name: heroDescription
-            widget: text
-
-          - label: Hero Background Image
-            name: heroImage
-            widget: image
-
-          - label: Next Match Section Label
-            name: nextMatchLabel
-            widget: string
-
-          - label: Next Match Heading
-            name: nextMatchTitle
-            widget: string
-
-          - label: Results Section Label
-            name: resultsLabel
-            widget: string
-
-          - label: Results Heading
-            name: resultsTitle
-            widget: string
-
+          - { label: Results Section Label, name: resultsLabel, widget: string }
+          - { label: Results Heading, name: resultsTitle, widget: string }
           - label: Number of Results
             name: resultsLimit
             widget: number
@@ -244,14 +219,8 @@ collections:
             min: 1
             max: 10
 
-          - label: Friendlies Section Label
-            name: friendliesLabel
-            widget: string
-
-          - label: Friendlies Heading
-            name: friendliesTitle
-            widget: string
-
+          - { label: Friendlies Section Label, name: friendliesLabel, widget: string }
+          - { label: Friendlies Heading, name: friendliesTitle, widget: string }
           - label: Number of Friendlies
             name: friendliesLimit
             widget: number
@@ -259,14 +228,8 @@ collections:
             min: 1
             max: 20
 
-          - label: Fixtures Section Label
-            name: fixturesLabel
-            widget: string
-
-          - label: Fixtures Heading
-            name: fixturesTitle
-            widget: string
-
+          - { label: Fixtures Section Label, name: fixturesLabel, widget: string }
+          - { label: Fixtures Heading, name: fixturesTitle, widget: string }
           - label: Number of Fixtures
             name: fixturesLimit
             widget: number
@@ -274,38 +237,17 @@ collections:
             min: 1
             max: 20
 
-          - label: Standings Section Label
-            name: standingsLabel
-            widget: string
+          - { label: Standings Section Label, name: standingsLabel, widget: string }
+          - { label: Standings Heading, name: standingsTitle, widget: string }
 
-          - label: Standings Heading
-            name: standingsTitle
-            widget: string
+          - { label: CTA Background Image, name: ctaImage, widget: image }
+          - { label: CTA Eyebrow, name: ctaEyebrow, widget: string }
+          - { label: CTA Heading, name: ctaTitle, widget: string }
+          - { label: CTA Description, name: ctaDescription, widget: text }
+          - { label: CTA Button Text, name: ctaButtonText, widget: string }
+          - { label: CTA Button URL, name: ctaButtonUrl, widget: string }
 
-          - label: CTA Background Image
-            name: ctaImage
-            widget: image
-
-          - label: CTA Eyebrow
-            name: ctaEyebrow
-            widget: string
-
-          - label: CTA Heading
-            name: ctaTitle
-            widget: string
-
-          - label: CTA Description
-            name: ctaDescription
-            widget: text
-
-          - label: CTA Button Text
-            name: ctaButtonText
-            widget: string
-
-          - label: CTA Button URL
-            name: ctaButtonUrl
-            widget: string
-
+  
 
   - name: matches
     label: Match Center

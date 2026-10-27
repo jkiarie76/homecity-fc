@@ -11,6 +11,4 @@ losses: 0
 goalsFor: 5
 goalsAgainst: 0
 points: 3
-standingsLeague: Thika League
-standingsSeason: 2026/27
 ---

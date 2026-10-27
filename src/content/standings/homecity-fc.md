@@ -1,6 +1,6 @@
 ---
 title: homecity-fc
-league: Kiambu sub County League
+league: Kiambu Sub-County League Zone C
 season: 2026/27
 team: Homecity FC
 position: 1

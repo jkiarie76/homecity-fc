@@ -1,105 +1,7 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection, getEntry } from "astro:content";
-
-const homepageEntry = await getEntry("homepage", "homepage");
-
-if (!homepageEntry) {
-    throw new Error(
-        "Homepage settings are missing: src/content/settings/homepage.md"
-    );
-}
-
-const homepage = homepageEntry.data;
-
-
-const featuredProducts = (
-    await getCollection(
-        "products",
-        ({ data }) =>
-            data.status === "published" &&
-            data.featured === true
-    )
-).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-
-
-// Latest published news
-const latestNews = (
-    await getCollection(
-        "news",
-        ({ data }) => data.status === "published"
-    )
-)
-    .sort(
-        (a, b) =>
-            new Date(b.data.publishedAt).getTime() -
-            new Date(a.data.publishedAt).getTime()
-    )
-    .slice(0, homepage.newsSectionLimit);
-
-// Match Center
-const allMatches = await getCollection("matches");
-
-const completedMatches = allMatches
-    .filter(
-        ({ data }) =>
-            data.matchStatus === "completed" &&
-            data.homeScore !== undefined &&
-            data.awayScore !== undefined
-    )
-    .sort(
-        (a, b) =>
-            new Date(b.data.matchDate).getTime() -
-            new Date(a.data.matchDate).getTime()
-    );
-
-const latestResult = completedMatches[0];
-
-const upcomingMatches = allMatches
-    .filter(
-        ({ data }) =>
-            data.matchStatus === "upcoming" &&
-            new Date(`${data.matchDate}T00:00:00`).getTime() >=
-                new Date(
-                    new Date().toLocaleDateString("en-CA") + "T00:00:00"
-                ).getTime()
-    )
-    .sort(
-        (a, b) =>
-            new Date(a.data.matchDate).getTime() -
-            new Date(b.data.matchDate).getTime()
-    );
-
-const upcomingFixture = upcomingMatches[0];
-
-// League standings: selected league and season
-const allStandings = await getCollection("standings");
-
-const leagueStandings = allStandings
-    .filter(
-        ({ data }) =>
-            data.league === homepage.standingsLeague &&
-            data.season === homepage.standingsSeason
-    )
-    .sort((a, b) => a.data.position - b.data.position)
-    .slice(0, 3);
-
-function formatMatchDate(date: string) {
-    return new Date(`${date}T00:00:00`).toLocaleDateString("en-KE", {
-        weekday: "short",
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-    });
-}
-
-function formatScore(score: number) {
-    return score.toString();
-}
+import "../../src/styles/main.css";
 ---
-
-
 <BaseLayout
 title="Homecity FC | Official Website"
 description="Homecity FC — Pride of Kisii Estate, Thika. Uniting talent, developing champions and inspiring the next generation."
@@ -109,61 +11,73 @@ activePage="home"
 
 <!-- ================= HERO ================= -->
 
-
 <section
     class="hero-section"
-    style={`background-image: url('${homepage.heroImage}');`}
+    style="background-image: url('/images/hfc1.png');"
 >
+
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
+
         <span class="season-badge">
-            {homepage.seasonBadge}
+            2026/27 SEASON — COMING BACK STRONG
         </span>
 
         <p class="welcome-text">
-            {homepage.welcomeText}
+            Welcome to
         </p>
 
         <h2 class="hero-title">
-            {homepage.heroTitle}
+            HOMECITY FC
         </h2>
 
         <h3 class="hero-subtitle">
-            {homepage.heroSubtitle}
+            Pride of Kisii Estate, Thika
         </h3>
 
         <h4 class="hero-motto">
-            {homepage.heroMotto}
+            ONE CLUB. ONE DREAM.
         </h4>
 
         <p class="hero-description">
-            {homepage.heroDescription}
+            Uniting talent, developing champions and inspiring the next
+            generation both on and off the field.
         </p>
 
         <div class="hero-cta-group">
-            {homepage.heroButtons.map((button, index) => (
-                <a
-                    href={button.url}
-                    class={index === 0 ? "btn-yellow" : "btn-outline"}
-                >
-                    <i class={`fas ${button.icon}`}></i>
-                    {button.label}
-                </a>
-            ))}
+
+            <a href="/academy" class="btn-yellow">
+                <i class="fas fa-graduation-cap"></i>
+                JOIN THE ACADEMY
+            </a>
+
+            <a href="/match-center" class="btn-outline">
+                <i class="fas fa-calendar-alt"></i>
+                VIEW FIXTURES
+            </a>
+
+            <a href="/support" class="btn-outline">
+                <i class="fas fa-user-plus"></i>
+                REGISTER AS A PLAYER
+            </a>
+
         </div>
+
     </div>
 
     <div class="venue-badge">
+
         <i class="fas fa-map-marker-alt"></i>
 
         <div>
-            <strong>{homepage.venueName}</strong>
-            <p>{homepage.venueAddress}</p>
+            <strong>KIPARA GROUNDS</strong>
+            <p>Kisii Estate, Thika, Kenya</p>
         </div>
-    </div>
-</section>
 
+    </div>
+
+</section>
 
 
 <!-- ================= SPONSORS MARQUEE ================= -->
@@ -199,6 +113,7 @@ activePage="home"
     class="section-white match-center"
     id="match-center"
 >
+
     <div class="section-container">
 
         <h2 class="section-title">
@@ -208,218 +123,184 @@ activePage="home"
         <div class="match-grid">
 
             <!-- Latest Result -->
+
             <div class="match-box">
-                <h3>Latest Result</h3>
 
-                {latestResult ? (
-                    <div class="result-card">
-                        <div class="team-row">
-                            <strong>{latestResult.data.homeTeam}</strong>
-                            <span class={
-                                latestResult.data.homeScore! >
-                                latestResult.data.awayScore!
-                                    ? "score-win"
-                                    : ""
-                            }>
-                                {formatScore(latestResult.data.homeScore!)}
-                            </span>
-                        </div>
+                <h3>
+                    Latest Result
+                </h3>
 
-                        <div class="team-row">
-                            <span>{latestResult.data.awayTeam}</span>
-                            <span class={
-                                latestResult.data.awayScore! >
-                                latestResult.data.homeScore!
-                                    ? "score-win"
-                                    : ""
-                            }>
-                                {formatScore(latestResult.data.awayScore!)}
-                            </span>
-                        </div>
+                <div class="result-card">
 
-                        <p class="match-meta">
-                            {formatMatchDate(latestResult.data.matchDate)}
-                            {" • "}
-                            {latestResult.data.venue}
-                            {" • "}
-                            {latestResult.data.competition}
-                        </p>
+                    <div class="team-row">
+
+                        <strong>
+                            Homecity FC
+                        </strong>
+
+                        <span class="score-win">
+                            3
+                        </span>
+
                     </div>
-                ) : (
-                    <div class="result-card">
-                        <p class="match-meta">
-                            No completed results available yet.
-                        </p>
+
+                    <div class="team-row">
+
+                        Rivals FC
+
+                        <span>
+                            1
+                        </span>
+
                     </div>
-                )}
+
+                    <p class="match-meta">
+                        Kipara Grounds • FKF Regional League
+                    </p>
+
+                </div>
+
             </div>
+
 
             <!-- Upcoming Fixture -->
+
             <div class="match-box">
-                <h3>Upcoming Fixture</h3>
 
-                {upcomingFixture ? (
-                    <div class="fixture-card">
-                        <p class="fixture-date">
-                            {formatMatchDate(upcomingFixture.data.matchDate)}
-                            {" — "}
-                            {upcomingFixture.data.kickoffTime}
-                        </p>
+                <h3>
+                    Upcoming Fixture
+                </h3>
 
-                        <div class="fixture-versus">
-                            <span>{upcomingFixture.data.homeTeam}</span>
-                            <span class="vs">VS</span>
-                            <span>{upcomingFixture.data.awayTeam}</span>
-                        </div>
+                <div class="fixture-card">
 
-                        <p class="match-meta">
-                            {upcomingFixture.data.venue}
-                            {" • "}
-                            {upcomingFixture.data.competition}
-                        </p>
+                    <p class="fixture-date">
+                        Sunday Match — 3:00 PM
+                    </p>
+
+                    <div class="fixture-versus">
+
+                        <span>
+                            Homecity FC
+                        </span>
+
+                        <span class="vs">
+                            VS
+                        </span>
+
+                        <span>
+                            Thika United B
+                        </span>
+
                     </div>
-                ) : (
-                    <div class="fixture-card">
-                        <p class="match-meta">
-                            No upcoming fixtures scheduled.
-                        </p>
-                    </div>
-                )}
+
+                    <p class="match-meta">
+                        Kipara Grounds, Kisii Estate
+                    </p>
+
+                </div>
+
             </div>
 
+
             <!-- League Table -->
+
             <div class="match-box">
-                <h3>League Table</h3>
 
-                {leagueStandings.length > 0 ? (
-                    <table class="standings-table">
-                        <thead>
-                            <tr>
-                                <th>Pos</th>
-                                <th>Club</th>
-                                <th>GD</th>
-                                <th>Pts</th>
-                            </tr>
-                        </thead>
+                <h3>
+                    League Table
+                </h3>
 
-                        <tbody>
-                            {leagueStandings.map(({ data }) => (
-                                <tr class={
-                                    data.team.toLowerCase() ===
-                                    "homecity fc".toLowerCase()
-                                        ? "leader-row"
-                                        : ""
-                                }>
-                                    <td>{data.position}</td>
+                <table class="standings-table">
 
-                                    <td>
-                                        <strong>{data.team}</strong>
-                                    </td>
+                    <thead>
 
-                                    <td>
-                                        {data.goalsFor - data.goalsAgainst > 0
-                                            ? `+${data.goalsFor - data.goalsAgainst}`
-                                            : data.goalsFor - data.goalsAgainst}
-                                    </td>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Club</th>
+                            <th>Pts</th>
+                        </tr>
 
-                                    <td>
-                                        <strong>{data.points}</strong>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                ) : (
-                    <p class="match-meta">
-                        Standings have not been added for this league and season.
-                    </p>
-                )}
+                    </thead>
+
+                    <tbody>
+
+                        <tr class="leader-row">
+
+                            <td>
+                                1
+                            </td>
+
+                            <td>
+                                <strong>
+                                    Homecity FC
+                                </strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    12
+                                </strong>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                2
+                            </td>
+
+                            <td>
+                                Kiambu Warriors
+                            </td>
+
+                            <td>
+                                9
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                Estate Stars FC
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
             </div>
 
         </div>
 
+
         <div class="view-more-wrapper">
-            <a href="/match-center" class="view-more-link">
+
+            <a
+                href="/match-center"
+                class="view-more-link"
+            >
                 View Full Fixtures & Standings
+
                 <i class="fas fa-arrow-right"></i>
             </a>
+
         </div>
 
     </div>
+
 </section>
-
-
-<!-- Latest News section  -->
-
-
-{homepage.showNewsSection && latestNews.length > 0 && (
-    <section class="section-white home-news-section" id="latest-news">
-        <div class="section-container">
-            <h2 class="section-title">
-                {homepage.newsSectionTitle}
-            </h2>
-
-            <div class="home-news-grid">
-                {latestNews.map((item) => (
-                    <article class="home-news-card">
-                        <a
-                            class="home-news-image-link"
-                            href={`/news/${item.data.slug}`}
-                        >
-                            <img
-                                src={item.data.image}
-                                alt={item.data.title}
-                                class="home-news-image"
-                                loading="lazy"
-                            />
-                        </a>
-
-                        <div class="home-news-content">
-                            <span class="home-news-category">
-                                {item.data.type}
-                            </span>
-
-                            <h3>
-                                <a href={`/news/${item.data.slug}`}>
-                                    {item.data.title}
-                                </a>
-                            </h3>
-
-                            <p>{item.data.summary}</p>
-
-                            <time datetime={item.data.publishedAt}>
-                                {new Date(item.data.publishedAt).toLocaleDateString(
-                                    "en-KE",
-                                    {
-                                        day: "numeric",
-                                        month: "short",
-                                        year: "numeric",
-                                    }
-                                )}
-                            </time>
-
-                            <a
-                                class="home-news-read-more"
-                                href={`/news/${item.data.slug}`}
-                            >
-                                Read More
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                ))}
-            </div>
-
-            <div class="view-more-wrapper">
-                <a href="/news" class="view-more-link">
-                    View All News
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-)}
-
 
 
 <!-- ================= FAN SHOP ================= -->
@@ -428,75 +309,143 @@ activePage="home"
     class="section-white match-center"
     id="shop"
 >
+
     <div class="section-container">
 
         <h2 class="section-title">
             Official Fan Shop
         </h2>
 
-        {featuredProducts.length > 0 ? (
-            <div class="shop-grid">
+        <div class="shop-grid">
 
-                {featuredProducts.map(({ data }) => (
-                    <article class="product-card">
+            <!-- Home Kit -->
 
-                        <div class="product-img-wrap">
-                            <img
-                                src={data.image}
-                                alt={data.title}
-                                class="product-img"
-                                loading="lazy"
-                            />
-                        </div>
+            <div class="product-card">
 
-                        <h4>{data.title}</h4>
+                <div class="product-img-wrap">
 
-                        <p>{data.description}</p>
+                    <img
+                        src="/images/homekit.png"
+                        alt="2026 Official Home Jersey"
+                        class="product-img"
+                    />
 
-                        <div class="product-meta">
+                </div>
 
-                            <span class="product-price">
-                                KES {data.price.toLocaleString("en-KE")}
-                            </span>
+                <h4>
+                    2026 Official Home Jersey
+                </h4>
 
-                            <button
-                                class="shop-buy-btn"
-                                type="button"
-                                disabled={data.stockStatus === "out-of-stock"}
-                                aria-label={
-                                    data.stockStatus === "out-of-stock"
-                                        ? `${data.title} is out of stock`
-                                        : `${data.title} - purchasing coming soon`
-                                }
-                            >
-                                {data.stockStatus === "out-of-stock"
-                                    ? "Out of Stock"
-                                    : "Coming Soon"}
-                            </button>
+                <p>
+                    Vibrant Yellow / Premium Matte Finish
+                </p>
 
-                        </div>
+                <div class="product-meta">
 
-                    </article>
-                ))}
+                    <span class="product-price">
+                        KES 3,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
 
             </div>
-        ) : (
-            <p class="match-meta">
-                Fan Shop products will be available soon.
-            </p>
-        )}
+
+
+            <!-- Away Kit -->
+
+            <div class="product-card">
+
+                <div class="product-img-wrap">
+
+                    <img
+                        src="/images/Awaykit.png"
+                        alt="2026 Official Away Jersey"
+                        class="product-img"
+                    />
+
+                </div>
+
+                <h4>
+                    2026 Official Away Jersey
+                </h4>
+
+                <p>
+                    Crisp Matte White / Metallic Gold Trim
+                </p>
+
+                <div class="product-meta">
+
+                    <span class="product-price">
+                        KES 3,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cap -->
+
+            <div class="product-card">
+
+                <div class="product-img-wrap">
+
+                    <img
+                        src="/images/Homecitycap.png"
+                        alt="Homecity FC Premium Cap"
+                        class="product-img"
+                    />
+
+                </div>
+
+                <h4>
+                    Premium Structured Cap
+                </h4>
+
+                <p>
+                    Pitch Black Twill / 3D Yellow Embroidery
+                </p>
+
+                <div class="product-meta">
+
+                    <span class="product-price">
+                        KES 1,500
+                    </span>
+
+                    <button class="shop-buy-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
 
         <div class="view-more-wrapper">
+
             <a
                 href="/fan-shop"
                 class="view-more-link"
             >
                 Browse Full Collection
+
                 <i class="fas fa-arrow-right"></i>
             </a>
+
         </div>
 
     </div>
+
 </section>
 
 
@@ -869,6 +818,6 @@ activePage="home"
     </div>
 
 </section>
-```
+
 
 </BaseLayout>

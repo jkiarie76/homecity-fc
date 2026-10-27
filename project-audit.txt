@@ -1,0 +1,141 @@
+===== PROJECT ROOT =====
+
+Mode   Name             
+----   ----             
+d----- .astro           
+d--h-- .git             
+d----- .vscode          
+d----- dist             
+d----- node_modules     
+d----- public           
+d----- src              
+-a---- .gitignore       
+-a---- AGENTS.md        
+-a---- astro.config.mjs 
+-a---- CLAUDE.md        
+-a---- package-lock.json
+-a---- package.json     
+-a---- project-audit.txt
+-a---- README.md        
+-a---- tsconfig.json    
+
+
+
+===== SOURCE FILES =====
+src\content.config.ts
+src\components\layout\Footer.astro
+src\components\layout\Header.astro
+src\components\shared\BackToTop.astro
+src\content\matches\homecity-fc-vs-rivals.md
+src\content\news\fortune-otwori-appointed-team-manager.md
+src\content\news\homecity-family-fan-affair-2026.md
+src\content\products\away-jersey-2026.md
+src\content\products\home-jersey-2026.md
+src\content\products\homecity-cap.md
+src\content\settings\fan-shop.md
+src\content\settings\homepage.md
+src\content\settings\match-center.md
+src\content\standings\homecity-fc.md
+src\data\news.js
+src\data\products.js
+src\layouts\BaseLayout.astro
+src\pages\about.astro
+src\pages\academies.astro
+src\pages\cart.astro
+src\pages\checkout.astro
+src\pages\contact.astro
+src\pages\fan-shop.astro
+src\pages\gallery.astro
+src\pages\index.astro
+src\pages\match-center.astro
+src\pages\partners.astro
+src\pages\senior-team.astro
+src\pages\support.astro
+src\pages\view-cart.astro
+src\pages\women-team.astro
+src\pages\news\index.astro
+src\pages\news\[slug].astro
+src\styles\about.css
+src\styles\academies.css
+src\styles\contact.css
+src\styles\fan-shop.css
+src\styles\gallery.css
+src\styles\header.css
+src\styles\main.css
+src\styles\match-center.css
+src\styles\news.css
+src\styles\partners.css
+src\styles\senior-team.css
+src\styles\support.css
+src\styles\women-team.css
+===== PUBLIC FILES =====
+public\academy.js
+public\cart.js
+public\checkout.js
+public\favicon.ico
+public\favicon.svg
+public\header.js
+public\news.js
+public\script.js
+public\senior-team.js
+public\shop.js
+public\admin\config.yml
+public\admin\index.html
+public\images\academy.png
+public\images\Awaykit.png
+public\images\ball.png
+public\images\Chairman.jpg
+public\images\coach.jpg
+public\images\fans.png
+public\images\HFC1.1.png
+public\images\hfc1.png
+public\images\home-city-fc-logo-44.svg
+public\images\Homecitycap.png
+public\images\homecity_hero.png
+public\images\homekit.png
+public\images\manager.jpg
+public\images\matchday.png
+public\images\shins.png
+public\images\shop1.jpg
+public\images\shop5.jpg
+public\images\Technical.jpg
+public\images\training.png
+public\images\wear.jpg
+public\images\wear1.png
+public\images\news\matchday.png
+===== PACKAGE.JSON =====
+{
+  "name": "hfc",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.3.5"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}
+===== ASTRO CONFIG =====
+// @ts-check
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
+export default defineConfig({});
+===== GIT STATUS =====
+## master...origin/master
+?? project-audit.txt
+===== RECENT COMMITS =====
+1f5411c changed config
+2b2c785 changes on cofig.yml
+d63bc87 Merge branch 'master' of https://github.com/jkiarie76/homecity-fc
+0a01046 match centre changes
+150d927 changed yml

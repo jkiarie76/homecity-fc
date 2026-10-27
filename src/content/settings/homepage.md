@@ -1,6 +1,8 @@
 
 ---
 seasonBadge: "2026/27 SEASON — COMING BACK STRONG"
+standingsLeague: "Kiambu Sub-County League Zone C"
+standingsSeason: "2026/27"
 welcomeText: "Welcome to"
 heroTitle: "HOMECITY FC"
 heroSubtitle: "Pride of Kisii Estate, Thika"

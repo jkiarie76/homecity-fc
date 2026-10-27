@@ -5,9 +5,15 @@ import "../styles/match-center.css";
 import { getCollection, getEntry } from "astro:content";
 
 const homepageEntry = await getEntry("homepage", "homepage");
+const matchCenterEntry = await getEntry("matchCenter", "match-center");
 
-const selectedLeague = homepageEntry?.data.standingsLeague ?? "Thika League";
-const selectedSeason = homepageEntry?.data.standingsSeason ?? "2026/27";
+const selectedLeague =
+    homepageEntry?.data.standingsLeague ?? "Thika League";
+
+const selectedSeason =
+    homepageEntry?.data.standingsSeason ?? "2026/27";
+
+const settings = matchCenterEntry?.data;
 
 // Use Kenya's local date when selecting upcoming fixtures.
 const today = new Date().toLocaleDateString("en-CA", {
@@ -40,10 +46,20 @@ const completedMatches = allMatches
 
 const nextMatch = upcomingMatches[0];
 
-const latestResults = completedMatches.slice(0, 5);
+const latestResults = completedMatches.slice(
+    0,
+    settings?.resultsLimit ?? 5
+);
 
-const upcomingFriendlies = upcomingMatches.filter(({ data }) =>
-    data.competition.toLowerCase().includes("friendly")
+const upcomingFriendlies = upcomingMatches
+    .filter(({ data }) =>
+        data.competition.toLowerCase().includes("friendly")
+    )
+    .slice(0, settings?.friendliesLimit ?? 10);
+
+const displayedUpcomingMatches = upcomingMatches.slice(
+    0,
+    settings?.fixturesLimit ?? 10
 );
 
 const leagueStandings = allStandings
@@ -139,20 +155,24 @@ function outcomeClass(outcome: string) {
     <!-- PAGE HERO -->
     <section
         class="page-hero"
-        style="background-image: url('/images/matchday.png');"
+        style={`background-image: url('${settings?.heroImage ?? "/images/matchday.png"}');`}
     >
         <div class="page-hero-overlay"></div>
 
         <div class="page-hero-content">
-            <span class="page-label">MATCH CENTRE</span>
+            <span class="page-label">
+                {settings?.heroLabel ?? "MATCH CENTRE"}
+            </span>
 
             <h1>
-                FOLLOW THE <span>ACTION.</span>
+                {settings?.heroTitle ?? "FOLLOW THE"}
+                {" "}
+                <span>{settings?.heroHighlight ?? "ACTION."}</span>
             </h1>
 
             <p>
-                Stay up to date with Homecity FC fixtures,
-                results, friendlies and league standings.
+                {settings?.heroDescription ??
+                    "Stay up to date with Homecity FC fixtures, results, friendlies and league standings."}
             </p>
         </div>
     </section>
@@ -161,8 +181,8 @@ function outcomeClass(outcome: string) {
     <section class="next-match-section">
         <div class="section-container">
             <div class="section-heading">
-                <span>NEXT MATCH</span>
-                <h2>THE NEXT BATTLE</h2>
+                <span>{settings?.nextMatchLabel ?? "NEXT MATCH"}</span>
+                <h2>{settings?.nextMatchTitle ?? "THE NEXT BATTLE"}</h2>
             </div>
 
             {nextMatch ? (
@@ -244,8 +264,8 @@ function outcomeClass(outcome: string) {
     <section class="results-section">
         <div class="section-container">
             <div class="section-heading">
-                <span>LATEST RESULTS</span>
-                <h2>HOW WE'VE DONE</h2>
+                <span>{settings?.resultsLabel ?? "LATEST RESULTS"}</span>
+                <h2>{settings?.resultsTitle ?? "HOW WE'VE DONE"}</h2>
             </div>
 
             {latestResults.length > 0 ? (
@@ -306,8 +326,8 @@ function outcomeClass(outcome: string) {
     <section class="friendlies-section">
         <div class="section-container">
             <div class="section-heading">
-                <span>PRE-SEASON &amp; SPECIAL MATCHES</span>
-                <h2>FRIENDLIES</h2>
+                <span>{settings?.friendliesLabel ?? "PRE-SEASON & SPECIAL MATCHES"}</span>
+                <h2>{settings?.friendliesTitle ?? "FRIENDLIES"}</h2>
             </div>
 
             {upcomingFriendlies.length > 0 ? (
@@ -365,13 +385,13 @@ function outcomeClass(outcome: string) {
     <section class="fixtures-section">
         <div class="section-container">
             <div class="section-heading">
-                <span>WHAT'S COMING</span>
-                <h2>UPCOMING FIXTURES</h2>
+                <span>{settings?.fixturesLabel ?? "WHAT'S COMING"}</span>
+                <h2>{settings?.fixturesTitle ?? "UPCOMING FIXTURES"}</h2>
             </div>
 
-            {upcomingMatches.length > 0 ? (
+            {displayedUpcomingMatches.length > 0 ? (
                 <div class="fixtures-list">
-                    {upcomingMatches.map(({ data }) => {
+                    {displayedUpcomingMatches.map(({ data }) => {
                         const date = formatShortDate(data.matchDate);
 
                         return (
@@ -429,8 +449,8 @@ function outcomeClass(outcome: string) {
     <section class="table-section">
         <div class="section-container">
             <div class="section-heading">
-                <span>LEAGUE STANDINGS</span>
-                <h2>THE TABLE</h2>
+                <span>{settings?.standingsLabel ?? "LEAGUE STANDINGS"}</span>
+                <h2>{settings?.standingsTitle ?? "THE TABLE"}</h2>
                 <p>{selectedLeague} · {selectedSeason}</p>
             </div>
 
@@ -496,21 +516,27 @@ function outcomeClass(outcome: string) {
     <!-- MATCHDAY CTA -->
     <section
         class="matchday-cta"
-        style="background-image: url('/images/matchday.png');"
+        style={`background-image: url('${settings?.ctaImage ?? "/images/matchday.png"}');`}
     >
         <div class="cta-overlay"></div>
 
         <div class="cta-content">
-            <span>MATCHDAY IS BETTER TOGETHER</span>
-            <h2>SEE YOU AT KIPARA.</h2>
+            <span>
+                {settings?.ctaEyebrow ?? "MATCHDAY IS BETTER TOGETHER"}
+            </span>
+
+            <h2>{settings?.ctaTitle ?? "SEE YOU AT KIPARA."}</h2>
 
             <p>
-                Bring the energy. Bring the passion.
-                Stand with Homecity FC.
+                {settings?.ctaDescription ??
+                    "Bring the energy. Bring the passion. Stand with Homecity FC."}
             </p>
 
-            <a href="/support" class="cta-button">
-                SUPPORT THE CLUB
+            <a
+                href={settings?.ctaButtonUrl ?? "/support"}
+                class="cta-button"
+            >
+                {settings?.ctaButtonText ?? "SUPPORT THE CLUB"}
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>

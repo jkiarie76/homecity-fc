@@ -160,6 +160,55 @@ const fanShop = defineCollection({
     }),
 });
 
+const matchCenter = defineCollection({
+    loader: glob({
+        pattern: "match-center.md",
+        base: "./src/content/settings",
+    }),
+    schema: z.object({
+        // Hero
+        heroLabel: z.string().default("MATCH CENTRE"),
+        heroTitle: z.string().default("FOLLOW THE"),
+        heroHighlight: z.string().default("ACTION."),
+        heroDescription: z.string().default(
+            "Stay up to date with Homecity FC fixtures, results, friendlies and league standings."
+        ),
+        heroImage: z.string().default("/images/matchday.png"),
+
+        // Next match
+        nextMatchLabel: z.string().default("NEXT MATCH"),
+        nextMatchTitle: z.string().default("THE NEXT BATTLE"),
+
+        // Latest results
+        resultsLabel: z.string().default("LATEST RESULTS"),
+        resultsTitle: z.string().default("HOW WE'VE DONE"),
+        resultsLimit: z.number().int().min(1).max(10).default(5),
+
+        // Friendlies
+        friendliesLabel: z.string().default("PRE-SEASON & SPECIAL MATCHES"),
+        friendliesTitle: z.string().default("FRIENDLIES"),
+        friendliesLimit: z.number().int().min(1).max(20).default(10),
+
+        // Upcoming fixtures
+        fixturesLabel: z.string().default("WHAT'S COMING"),
+        fixturesTitle: z.string().default("UPCOMING FIXTURES"),
+        fixturesLimit: z.number().int().min(1).max(20).default(10),
+
+        // League standings
+        standingsLabel: z.string().default("LEAGUE STANDINGS"),
+        standingsTitle: z.string().default("THE TABLE"),
+
+        // Final CTA
+        ctaImage: z.string().default("/images/matchday.png"),
+        ctaEyebrow: z.string().default("MATCHDAY IS BETTER TOGETHER"),
+        ctaTitle: z.string().default("SEE YOU AT KIPARA."),
+        ctaDescription: z.string().default(
+            "Bring the energy. Bring the passion. Stand with Homecity FC."
+        ),
+        ctaButtonText: z.string().default("SUPPORT THE CLUB"),
+        ctaButtonUrl: z.string().default("/support"),
+    }),
+});
 
 export const collections = {
     news,
@@ -168,4 +217,5 @@ export const collections = {
     standings,
     products,
     fanShop,
+    matchCenter,
 };

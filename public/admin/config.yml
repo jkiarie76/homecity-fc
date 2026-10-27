@@ -98,7 +98,6 @@ collections:
         name: body
         widget: markdown
 
-
   - name: homepage-settings
     label: Homepage Settings
     description: Edit the homepage hero and latest news display.
@@ -112,6 +111,16 @@ collections:
           - label: Season Badge
             name: seasonBadge
             widget: string
+
+          - label: Standings League
+            name: standingsLeague
+            widget: string
+            default: "Kiambu Sub-County League Zone C"
+
+          - label: Standings Season
+            name: standingsSeason
+            widget: string
+            default: "2026/27"
 
           - label: Welcome Text
             name: welcomeText
@@ -179,7 +188,6 @@ collections:
             value_type: int
             min: 1
             max: 6
-
 
   - name: matches
     label: Match Center
@@ -267,7 +275,6 @@ collections:
         widget: markdown
         required: false
 
-
   - name: standings
     label: League Standings
     label_singular: Team Standing
@@ -347,7 +354,6 @@ collections:
         value_type: int
         min: 0
 
-
   - name: products
     label: Fan Shop Products
     label_singular: Product
@@ -404,7 +410,6 @@ collections:
           - { label: Published, value: published }
         default: draft
 
-      
       - label: Stock Availability
         name: stockStatus
         widget: select
@@ -412,7 +417,6 @@ collections:
           - { label: In Stock, value: in-stock }
           - { label: Out of Stock, value: out-of-stock }
         default: in-stock
-
 
       - label: Feature on Homepage
         name: featured
@@ -425,7 +429,6 @@ collections:
         value_type: int
         min: 0
         default: 0
-
 
   - name: fan-shop-settings
     label: Fan Shop Settings

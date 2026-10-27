@@ -128,10 +128,44 @@ const products = defineCollection({
 });
 
 
+const fanShop = defineCollection({
+    loader: glob({
+        pattern: "fan-shop.md",
+        base: "./src/content/settings",
+    }),
+    schema: z.object({
+        heroEyebrow: z.string().default("WEAR THE BADGE"),
+        heroTitle: z.string().default("Homecity FC"),
+        heroHighlight: z.string().default("Fan Shop"),
+        heroDescription: z.string().default(
+            "Official club gear for the people behind the badge. Pick your gear and show your colours."
+        ),
+        heroButtonText: z.string().default("Shop the collection"),
+        heroButtonUrl: z.string().default("#shop-products"),
+
+        collectionEyebrow: z.string().default("THE CLUB COLLECTION"),
+        collectionTitle: z.string().default("Find your Homecity gear"),
+        collectionDescription: z.string().default(
+            "Browse the official Homecity FC collection."
+        ),
+
+        showOrderingNotice: z.boolean().default(true),
+        orderingNotice: z.string().default(
+            "Online ordering will be available soon."
+        ),
+
+        emptyProductsMessage: z.string().default(
+            "No products are available yet."
+        ),
+    }),
+});
+
+
 export const collections = {
     news,
     homepage,
     matches,
     standings,
     products,
+    fanShop,
 };

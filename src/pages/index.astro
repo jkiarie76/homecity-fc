@@ -13,6 +13,17 @@ if (!homepageEntry) {
 
 const homepage = homepageEntry.data;
 
+
+const featuredProducts = (
+    await getCollection(
+        "products",
+        ({ data }) =>
+            data.status === "published" &&
+            data.featured === true
+    )
+).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+
 // Latest published news
 const latestNews = (
     await getCollection(
@@ -417,143 +428,75 @@ activePage="home"
     class="section-white match-center"
     id="shop"
 >
-
     <div class="section-container">
 
         <h2 class="section-title">
             Official Fan Shop
         </h2>
 
-        <div class="shop-grid">
+        {featuredProducts.length > 0 ? (
+            <div class="shop-grid">
 
-            <!-- Home Kit -->
+                {featuredProducts.map(({ data }) => (
+                    <article class="product-card">
 
-            <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img
+                                src={data.image}
+                                alt={data.title}
+                                class="product-img"
+                                loading="lazy"
+                            />
+                        </div>
 
-                <div class="product-img-wrap">
+                        <h4>{data.title}</h4>
 
-                    <img
-                        src="/images/homekit.png"
-                        alt="2026 Official Home Jersey"
-                        class="product-img"
-                    />
+                        <p>{data.description}</p>
 
-                </div>
+                        <div class="product-meta">
 
-                <h4>
-                    2026 Official Home Jersey
-                </h4>
+                            <span class="product-price">
+                                KES {data.price.toLocaleString("en-KE")}
+                            </span>
 
-                <p>
-                    Vibrant Yellow / Premium Matte Finish
-                </p>
+                            <button
+                                class="shop-buy-btn"
+                                type="button"
+                                disabled={data.stockStatus === "out-of-stock"}
+                                aria-label={
+                                    data.stockStatus === "out-of-stock"
+                                        ? `${data.title} is out of stock`
+                                        : `${data.title} - purchasing coming soon`
+                                }
+                            >
+                                {data.stockStatus === "out-of-stock"
+                                    ? "Out of Stock"
+                                    : "Coming Soon"}
+                            </button>
 
-                <div class="product-meta">
+                        </div>
 
-                    <span class="product-price">
-                        KES 3,500
-                    </span>
-
-                    <button class="shop-buy-btn">
-                        Add to Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- Away Kit -->
-
-            <div class="product-card">
-
-                <div class="product-img-wrap">
-
-                    <img
-                        src="/images/Awaykit.png"
-                        alt="2026 Official Away Jersey"
-                        class="product-img"
-                    />
-
-                </div>
-
-                <h4>
-                    2026 Official Away Jersey
-                </h4>
-
-                <p>
-                    Crisp Matte White / Metallic Gold Trim
-                </p>
-
-                <div class="product-meta">
-
-                    <span class="product-price">
-                        KES 3,500
-                    </span>
-
-                    <button class="shop-buy-btn">
-                        Add to Cart
-                    </button>
-
-                </div>
+                    </article>
+                ))}
 
             </div>
-
-
-            <!-- Cap -->
-
-            <div class="product-card">
-
-                <div class="product-img-wrap">
-
-                    <img
-                        src="/images/Homecitycap.png"
-                        alt="Homecity FC Premium Cap"
-                        class="product-img"
-                    />
-
-                </div>
-
-                <h4>
-                    Premium Structured Cap
-                </h4>
-
-                <p>
-                    Pitch Black Twill / 3D Yellow Embroidery
-                </p>
-
-                <div class="product-meta">
-
-                    <span class="product-price">
-                        KES 1,500
-                    </span>
-
-                    <button class="shop-buy-btn">
-                        Add to Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
+        ) : (
+            <p class="match-meta">
+                Fan Shop products will be available soon.
+            </p>
+        )}
 
         <div class="view-more-wrapper">
-
             <a
                 href="/fan-shop"
                 class="view-more-link"
             >
                 Browse Full Collection
-
                 <i class="fas fa-arrow-right"></i>
             </a>
-
         </div>
 
     </div>
-
 </section>
 
 

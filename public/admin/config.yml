@@ -348,17 +348,6 @@ collections:
         min: 0
 
 
-      - label: Standings League
-        name: standingsLeague
-        widget: string
-        default: "Thika League"
-
-      - label: Standings Season
-        name: standingsSeason
-        widget: string
-        default: "2026/27"
-
-
   - name: products
     label: Fan Shop Products
     label_singular: Product
@@ -436,3 +425,24 @@ collections:
         value_type: int
         min: 0
         default: 0
+
+
+  - name: fan-shop-settings
+    label: Fan Shop Settings
+    files:
+      - name: fan-shop
+        label: Fan Shop Page Settings
+        file: src/content/settings/fan-shop.md
+        fields:
+          - { label: Hero Eyebrow, name: heroEyebrow, widget: string }
+          - { label: Hero Title, name: heroTitle, widget: string }
+          - { label: Hero Highlight, name: heroHighlight, widget: string }
+          - { label: Hero Description, name: heroDescription, widget: text }
+          - { label: Hero Button Text, name: heroButtonText, widget: string }
+          - { label: Hero Button URL, name: heroButtonUrl, widget: string }
+          - { label: Collection Eyebrow, name: collectionEyebrow, widget: string }
+          - { label: Collection Title, name: collectionTitle, widget: string }
+          - { label: Collection Description, name: collectionDescription, widget: text }
+          - { label: Show Ordering Notice, name: showOrderingNotice, widget: boolean, default: true }
+          - { label: Ordering Notice, name: orderingNotice, widget: text }
+          - { label: Empty Products Message, name: emptyProductsMessage, widget: text }
